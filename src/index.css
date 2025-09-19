@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+
+
+
+/* --- Simple animation utilities --- */
+@keyframes floatUp {
+    0% {
+        transform: translateY(14px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-floatUp {
+    animation: floatUp 700ms ease-out both;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: all .6s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nice gradient helpers */
+.bg-soft {
+    background: radial-gradient(80% 80% at 50% 0%, #eef2ff 0%, transparent 60%) no-repeat;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #0ea5e9, #22c55e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
