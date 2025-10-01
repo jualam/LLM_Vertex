@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: { opacity: 0 },
@@ -122,12 +123,12 @@ export default function WorkWithUs() {
                   <span className="relative z-10">Submit Your Resume</span>
               </a>
 
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-50"
               >
                 Questions? Contact us
-              </a>
+              </Link>
             </div>
           </motion.div>
         </motion.section>
