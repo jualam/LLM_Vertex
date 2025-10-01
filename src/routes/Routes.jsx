@@ -7,6 +7,7 @@ import WorkWithUs from "../pages/WorkWithUs";
 import WhoWeServe from "../pages/WhoWeServe";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
+import Privacy_Policy from "../pages/Privacy_Policy";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       { path: "/work-with-us", element: <WorkWithUs /> },
       { path: "/who-we-serve", element: <WhoWeServe /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/privacy-policy", element: <Privacy_Policy /> },
       { path: "*", element: <NotFound /> },
     ],
   },

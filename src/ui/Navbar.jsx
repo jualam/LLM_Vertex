@@ -70,16 +70,19 @@ const Navbar = () => {
           // force scroll to top when clicking logo on same page
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }}>
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-sky-500 to-emerald-500"></div>
+          <div className="h-15 w-15 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="logo/logo.png" alt="LLM Vertex Logo" className="h-full w-full object-contain" />
+          </div>
+
           <span className="font-bold tracking-tight">LLM Vertex</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
           <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
+          <NavItem to="/work-with-us" onNavigate={closeMenu}>Work With Us</NavItem>
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
-          <NavItem to="/work-with-us" onNavigate={closeMenu}>Work With Us</NavItem>
           <NavItem to="/contact" onNavigate={closeMenu}>Contact</NavItem>
           <Link
             to="/contact"

@@ -2,96 +2,141 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="relative z-0 overflow-hidden text-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900
-                       min-h-[420px] sm:min-h-[380px] md:min-h-0">
-      {/* Background image */}
-      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <img
-          src="/footer-bg.png"
-          alt=""
-          className="w-full h-full select-none object-cover object-[center_top] md:object-center"
-          loading="lazy"
-        />
-      </div>
-
-      {/* (Very) light tint for contrast */}
-      <div className="absolute inset-0 z-10 bg-slate-900/10 pointer-events-none" aria-hidden="true" />
-
+    <footer className="relative z-0 overflow-hidden bg-white text-slate-700">
       {/* Content */}
       <div
-        className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14
-                   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10
-                   place-items-center md:place-items-start text-center md:text-left"
+        className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-16
+                   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12"
       >
         {/* Brand */}
-        <div className="w-full">
-          <div className="flex justify-center md:justify-start items-center gap-2">
-            <div className="h-9 w-9 md:h-10 md:w-10 rounded-lg bg-gradient-to-br from-sky-400 to-emerald-400" />
-            <span className="text-base md:text-lg font-bold tracking-tight text-white">LLM Vertex</span>
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 justify-center md:justify-start">
+            <div className="h-10 w-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden ring-1 ring-slate-200">
+              <img
+                src="logo/logo.png"
+                alt="LLM Vertex Logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <span className="text-lg font-bold tracking-tight text-slate-900">
+              LLM Vertex
+            </span>
           </div>
-          <p className="text-sm text-slate-300/80 mt-3 md:mt-4 leading-relaxed">
-            Building inclusive AI through ethical diverse data and workforce innovation.
+          <p className="text-sm text-slate-600/90 leading-relaxed text-center md:text-left">
+            Building inclusive AI through ethical diverse data and workforce
+            innovation.
           </p>
         </div>
 
         {/* Company */}
-        <div className="w-full">
-          <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Company</h4>
+        <div className="space-y-3">
+          <h4 className="text-slate-900 font-semibold text-sm">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/about" className="hover:text-sky-400 transition">About</Link></li>
-            <li><Link to="/work-with-us" className="hover:text-sky-400 transition">Careers / Work with us</Link></li>
-            <li><Link to="/contact" className="hover:text-sky-400 transition">Contact</Link></li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-slate-900 transition-colors"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work-with-us"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Careers / Work with us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Solutions */}
-        <div className="w-full">
-          <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Solutions</h4>
+        <div className="space-y-3">
+          <h4 className="text-slate-900 font-semibold text-sm">Solutions</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/services#multilingual" className="hover:text-sky-400 transition">Multilingual Text Data</Link></li>
-            <li><Link to="/services#talent" className="hover:text-sky-400 transition">Trained AI Data Engineers</Link></li>
-            <li><Link to="/services#finetune" className="hover:text-sky-400 transition">Fine-Tuning & Partnerships</Link></li>
+            <li>
+              <Link
+                to="/services#multilingual"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Multilingual Text Data
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services#talent"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Trained AI Data Engineers
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services#finetune"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Fine-Tuning & Partnerships
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Subscribe */}
-        <div className="w-full">
-          <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Subscribe</h4>
-          <form className="flex flex-col sm:flex-row gap-2 w-full">
+        <div className="space-y-3">
+          <h4 className="text-slate-900 font-semibold text-sm">Subscribe</h4>
+          <form
+            className="flex flex-col sm:flex-row gap-2 w-full"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <label htmlFor="footer-email" className="sr-only">
+              Email address
+            </label>
             <input
+              id="footer-email"
               type="email"
               placeholder="you@company.com"
-              className="w-full rounded-lg px-3 py-2 text-sm bg-slate-800/90 border border-slate-700 placeholder-slate-400
-                         focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full rounded-lg px-3 py-2 text-sm bg-white border border-slate-300
+                         placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
             />
             <button
-              className="w-full sm:w-auto rounded-lg bg-gradient-to-r from-sky-500 to-emerald-500 text-white px-4 py-2 text-sm font-medium
-                         hover:opacity-90 transition"
+              className="w-full sm:w-auto rounded-lg bg-slate-900 text-white px-4 py-2 text-sm font-medium
+                         hover:bg-black transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900/10"
+              type="submit"
+              aria-label="Join newsletter"
             >
               Join
             </button>
           </form>
-          <p className="mt-3 text-xs text-slate-400/90">
+          <p className="text-xs text-slate-500">
             We’ll occasionally send updates. Unsubscribe anytime.
           </p>
         </div>
       </div>
 
+      {/* Divider */}
+      <hr className="border-t border-slate-200" />
+
       {/* Bottom bar */}
-      <div className="relative z-20 border-t border-slate-600/50">
-        <div
-          className="max-w-7xl mx-auto px-4 sm:px-6 py-5 md:py-6
-                     flex flex-col md:flex-row items-center justify-between gap-3
-                     text-center md:text-left"
-        >
-          <p className="text-xs text-slate-400">
-            © <span>{new Date().getFullYear()}</span> LLM Vertex LLC — All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300/80 text-sm">
-            <a href="#" className="hover:text-sky-400 transition">Privacy Policy</a>
-            <a href="#" className="hover:text-sky-400 transition">Terms</a>
-            <a href="#" className="hover:text-sky-400 transition">Support</a>
-          </div>
+      <div
+        className="mx-auto max-w-7xl px-4 sm:px-6 py-5 md:py-6
+                   flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left"
+      >
+        <p className="text-xs text-slate-500">
+          © <span>{new Date().getFullYear()}</span> LLM Vertex LLC — All rights reserved.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-4 text-slate-600 text-sm">
+          <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
+          <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Terms</Link>
+          <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Support</Link>
         </div>
       </div>
     </footer>
