@@ -103,7 +103,7 @@ const Footer = () => {
             <input
               id="footer-email"
               type="email"
-              placeholder="info.llmvertex.com"
+              placeholder="info@llmvertex.com"
               className="w-full rounded-lg px-3 py-2 text-sm bg-white border border-slate-300
                          placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
             />
@@ -131,7 +131,7 @@ const Footer = () => {
                    flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left"
       >
         <p className="text-xs text-slate-500">
-          © <span>{new Date().getFullYear()}</span> LLM Vertex LLC — All rights reserved.
+          © <span>{new Date().getFullYear()}</span> LLM Vertex LLC - All rights reserved.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4 text-slate-600 text-sm">
           <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>

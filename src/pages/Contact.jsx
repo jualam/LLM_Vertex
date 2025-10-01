@@ -73,7 +73,7 @@ export default function Contact() {
             </svg>
             <div>
               <h2 className="font-semibold text-black">Locations</h2>
-              <p className="text-slate-700 mt-1">New Jersey, USA • Dhaka, Bangladesh</p>
+              <p className="text-slate-700 mt-1">New Jersey, USA  </p>
               <p className="text-slate-700">Mon–Fri, 9:00–18:00 (local)</p>
             </div>
           </div>

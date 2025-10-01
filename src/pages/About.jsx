@@ -58,7 +58,7 @@ export default function About() {
           <motion.div variants={item} className="rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur p-6 md:p-8 shadow-[0_8px_40px_-12px_rgba(2,6,23,0.15)]">
             <h2 className="text-xl md:text-2xl font-semibold">Our Story</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              LLM Vertex began with a simple belief: language carries stories and identities that deserve to be reflected in the systems shaping our future. As AI adoption accelerates, many cultures remain unseen in training data and evaluations. We partner with multilingual talent-especially international students—to build fair, culturally nuanced datasets and evaluation pipelines.
+              LLM Vertex began with a simple belief: language carries stories and identities that deserve to be reflected in the systems shaping our future. As AI adoption accelerates, many cultures remain unseen in training data and evaluations. We partner with multilingual talent-especially international students to build fair, culturally nuanced datasets and evaluation pipelines.
             </p>
           </motion.div>
         </motion.section>
@@ -93,9 +93,9 @@ export default function About() {
             <h3 className="font-semibold text-lg">How We Work</h3>
             <ul className="mt-3 space-y-2 text-slate-700">
               <li>• Consent driven collection with clear policy alignment.</li>
-              <li>• Dialect aware annotation, layered QA, and gold‑set checks.</li>
-              <li>• Human‑in‑the‑loop evaluation with cultural nuance.</li>
-              <li>• Fine‑tuning and red‑teaming for safer models.</li>
+              <li>• Dialect aware annotation, layered QA, and gold set checks.</li>
+              <li>• Human in the loop evaluation with cultural nuance.</li>
+              <li>• Fine tuning and red teaming for safer models.</li>
             </ul>
           </motion.div>
           <motion.div variants={item} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
