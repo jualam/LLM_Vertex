@@ -21,7 +21,7 @@ export default function About() {
   ];
 
   const stats = [
-    ["45+", "languages & dialects"],
+    ["15+", "languages & dialects"],
     ["10k+", "hours of labeled data"],
     ["95%", "QA accuracy on gold sets"],
     ["100%", "policy‑aligned workflows"]
@@ -58,7 +58,7 @@ export default function About() {
           <motion.div variants={item} className="rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur p-6 md:p-8 shadow-[0_8px_40px_-12px_rgba(2,6,23,0.15)]">
             <h2 className="text-xl md:text-2xl font-semibold">Our Story</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              LLM Vertex began with a simple belief: language carries stories and identities that deserve to be reflected in the systems shaping our future. As AI adoption accelerates, many cultures remain unseen in training data and evaluations. We partner with multilingual talent—especially international students—to build fair, culturally nuanced datasets and evaluation pipelines.
+              LLM Vertex began with a simple belief: language carries stories and identities that deserve to be reflected in the systems shaping our future. As AI adoption accelerates, many cultures remain unseen in training data and evaluations. We partner with multilingual talent-especially international students—to build fair, culturally nuanced datasets and evaluation pipelines.
             </p>
           </motion.div>
         </motion.section>
@@ -80,7 +80,7 @@ export default function About() {
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map(([num, label]) => (
               <motion.div key={label} variants={item} className="rounded-2xl border border-slate-200 bg-white py-6 text-center shadow-sm">
-                <div className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-amber-500">{num}</div>
+                <div className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-black">{num}</div>
                 <div className="mt-1 text-slate-600 text-sm">{label}</div>
               </motion.div>
             ))}
@@ -92,8 +92,8 @@ export default function About() {
           <motion.div variants={item} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h3 className="font-semibold text-lg">How We Work</h3>
             <ul className="mt-3 space-y-2 text-slate-700">
-              <li>• Consent‑driven collection with clear policy alignment.</li>
-              <li>• Dialect‑aware annotation, layered QA, and gold‑set checks.</li>
+              <li>• Consent driven collection with clear policy alignment.</li>
+              <li>• Dialect aware annotation, layered QA, and gold‑set checks.</li>
               <li>• Human‑in‑the‑loop evaluation with cultural nuance.</li>
               <li>• Fine‑tuning and red‑teaming for safer models.</li>
             </ul>
@@ -131,33 +131,8 @@ export default function About() {
           </div>
         </motion.section> */}
 
-        {/* CTA */}
-        <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.div variants={item} className="relative overflow-hidden rounded-2xl bg-slate-900 text-slate-100 p-6 md:p-8">
-            <div className="absolute inset-0 bg-[radial-gradient(800px_220px_at_0%_0%,rgba(56,189,248,0.15),transparent),radial-gradient(700px_200px_at_100%_100%,rgba(244,114,182,0.12),transparent)]" />
-            <div className="relative">
-              <h3 className="text-xl md:text-2xl font-semibold">Let’s build AI for everyone</h3>
-              <p className="mt-2 text-slate-300">Partner with us to create datasets, evaluations, and training programs that honor the world’s linguistic and cultural diversity.</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {/* White button with black text */}
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-slate-100 transition"
-                >
-                  Contact Us
-                </a>
-
-                {/* Secondary outline button */}
-                <a
-                  href="/who-we-serve"
-                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm text-white-700 hover:text-black hover:bg-slate-50 transition"
-                >
-                  Explore Services
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </motion.section>
+        
+        
       </div>
     </div>
   );

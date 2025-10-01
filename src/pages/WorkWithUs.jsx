@@ -114,7 +114,9 @@ export default function WorkWithUs() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                  href="mailto:talent@llmvertex.com?subject=Resume%20Submission&body=Please%20find%20my%20resume%20attached."
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdh941YnHgePYvKWm6Zrbf_RwIWW16F0tVctIeI91gMqR8yGw/viewform?usp=sharing&ouid=113627358098737480565"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center overflow-hidden rounded-xl px-5 py-3 text-sm font-medium text-white bg-black hover:bg-slate-800 transition focus:outline-none"
               >
                   <span className="relative z-10">Submit Your Resume</span>

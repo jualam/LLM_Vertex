@@ -85,7 +85,7 @@ export default function Home() {
       <section className="relative">
         {/* subtle shape */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(14,165,233,.08),transparent_60%),radial-gradient(ellipse_at_bottom,_rgba(16,185,129,.08),transparent_60%)]"
         />
         <div className="max-w-7xl mx-auto px-4 pt-16 pb-10 lg:pt-20 lg:pb-16">
@@ -98,7 +98,6 @@ export default function Home() {
               </div>
 
               <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                {/* Building <span className="gradient-text">Inclusive AI</span> through Ethical Diverse Data &amp; Workforce Innovation */}
                 Building Inclusive AI through Ethical Diverse Data &amp; Workforce Innovation
               </h1>
               <p className="mt-4 text-slate-600 max-w-xl">
@@ -107,34 +106,23 @@ export default function Home() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  to="/services"
+                  to="/work-with-us"
                   className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800"
                 >
                   Work with Us
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/services"
                   className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100"
                 >
                   Explore Our Solutions
                 </Link>
-                
               </div>
-
-              {/* <div className="mt-8 flex items-center gap-4 text-sm text-slate-600">
-                <img src="aiu.jpg" alt="" className="h-9 w-9 rounded-full object-cover" />
-                <div>
-                  “Let’s Build AI for Everyone.” <span className="text-slate-400">— LLM Vertex</span>
-                </div>
-              </div> */}
-
             </div>
 
             <div className="lg:col-span-6">
               <div className="relative h-full">
                 <div className="absolute inset-0 rounded-[28px] border border-slate-200 bg-white p-3 md:p-4 reveal shine">
-
-                  {/* New Code */}
                   <div className="h-full">
                     <div className="rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
                       <img
@@ -144,26 +132,6 @@ export default function Home() {
                       />
                     </div>
                   </div>
-
-                  {/* <div className="grid grid-cols-3 gap-3 md:gap-4 h-full">
-                    <div className="col-span-2 rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
-                      <img
-                        src="llm.jpg"
-                        alt="Dataset creation preview"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-3 md:gap-4">
-                      <div className="rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 floaty">
-                        <img src="data.jpg" alt="" className="h-32 md:h-40 w-full object-cover" />
-                      </div>
-                      <div className="rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
-                        <img src="aiu.jpg" alt="" className="h-32 md:h-40 w-full object-cover" />
-                      </div>
-                    </div>
-                  </div> */}
-
-
                 </div>
 
                 <div className="absolute -top-2 -left-6 hidden md:block">
@@ -175,10 +143,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* TRUST BAR (Marquee style) */}
+        {/* TRUST BAR (Marquee style) */}
         <div className="mt-12 reveal">
-          <div className="text-xs uppercase tracking-wide text-slate-500 mb-3">Our Diversity</div>
+          
 
           {/* Inline keyframes for marquee */}
           <style>{`
@@ -189,33 +158,105 @@ export default function Home() {
             .marquee-track {
               display: flex;
               width: max-content;
-              animation: marqueeRTL 30s linear infinite;
+              animation: marqueeRTL 35s linear infinite;
             }
             .marquee-track > * {
               flex-shrink: 0;
             }
+            @media (prefers-reduced-motion: reduce) {
+              .marquee-track { animation: none; }
+            }
           `}</style>
 
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            <div className="marquee-track gap-12 py-6 will-change-transform">
-              {/* row 1 */}
-              {["l1.jpg","logo/l1.jpg","logo/l2.jpg","logo/l3.jpg","logo/l4.jpg","logo/l5.jpg","logo/l6.jpg","logo/l7.jpg","logo/l8.jpg"].map((src, i) => (
-                <div key={`row1-${i}`} className="opacity-90 hover:opacity-100 transition">
-                  <img src={src} alt="" className="h-15 md:h-15 object-contain" />
-                </div>
-              ))}
-              {/* duplicate row for seamless loop */}
-              {["l1.jpg","logo/l1.jpg","logo/l2.jpg","logo/l3.jpg","logo/l4.jpg","logo/l5.jpg","logo/l6.jpg","logo/l7.jpg","logo/l8.jpg"].map((src, i) => (
-                <div key={`row2-${i}`} className="opacity-90 hover:opacity-100 transition">
-                  <img src={src} alt="" className="h-15 md:h-15 object-contain" />
-                </div>
-              ))}
+          {/* Constrain width to main page content */}
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-x uppercase tracking-wide text-slate-700 mb-3">
+            Our Diversity
+          </div>
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <div
+                className="marquee-track gap-8 py-6 will-change-transform text-sm md:text-base"
+                aria-label="Language diversity marquee"
+              >
+                {[
+                  "中文 / 汉语",
+                  "Español",
+                  "English",
+                  "हिन्दी",
+                  "العربية",
+                  "বাংলা",
+                  "Português",
+                  "Русский",
+                  "日本語",
+                  "ਪੰਜਾਬੀ / پنجابی",
+                  "Deutsch",
+                  "Français",
+                  "اردو",
+                  "தமிழ்",
+                  "Türkçe",
+                ].map((lang, i) => (
+                  <span
+                    key={`row1-${i}`}
+                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold text-xl transition transform hover:scale-105 ${
+                      [
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                      ][i % 8]
+                    }`}
+                  >
+                    {lang}
+                  </span>
+                ))}
+
+                {/* duplicate row for seamless loop */}
+                {[
+                  "中文 / 汉语",
+                  "Español",
+                  "English",
+                  "हिन्दी",
+                  "العربية",
+                  "বাংলা",
+                  "Português",
+                  "Русский",
+                  "日本語",
+                  "ਪੰਜਾਬੀ / پنجابی",
+                  "Deutsch",
+                  "Français",
+                  "اردو",
+                  "தமிழ்",
+                  "Türkçe",
+                ].map((lang, i) => (
+                  <span
+                    key={`row2-${i}`}
+                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold transition transform hover:scale-105 ${
+                      [
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                        "bg-black",
+                      ][i % 8]
+                    }`}
+                  >
+                    {lang}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        </div>
       </section>
+
 
       {/* WHAT WE DO */}
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
@@ -249,7 +290,7 @@ export default function Home() {
             title="Fine-Tuning & AI Model Partnerships"
             body="Culturally-aware dataset prep and fine-tuning to align models with regional nuance."
             href="/services#finetune"
-            img="hero.jpg"
+            img="fine_tune.jpg"
           />
         </div>
       </section>
@@ -263,7 +304,7 @@ export default function Home() {
               Many LLMs overlook underrepresented languages. We bridge this gap by creating culturally-aware datasets and empowering a diverse AI workforce.
             </p>
             <div className="mt-6 grid sm:grid-cols-3 gap-4">
-              <Stat k="40+" v="languages covered (and growing)" />
+              <Stat k="15+" v="languages covered (and growing)" />
               <Stat k="95%" v="avg. QA acceptance on pilot projects" />
               <Stat k="2–6w" v="typical dataset pilot delivery" />
             </div>
@@ -302,16 +343,16 @@ export default function Home() {
                 <li>• Mentorship and career guidance</li>
               </ul>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/careers" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
-                  Apply / Submit Resume
+                <Link to="/work-with-us" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
+                  Apply
                 </Link>
-                <Link to="/programs" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
+                {/* <Link to="/programs" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
                   Learn more
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
-              <img src="student.jpg" alt="Students collaborating" className="w-full h-full object-cover" />
+              <img src="int_students.jpg" alt="Students collaborating" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -330,10 +371,10 @@ export default function Home() {
           {[
             ["Conversational AI & Support","data.jpg","Multilingual intents, NER, and QA data for customer support and assistants."],
             ["Safety & Alignment","llm.jpg","Red-teaming prompts and culturally-aware safety evaluation sets."],
-            ["Search & RAG","hero.jpg","Domain corpora, chunking evaluation, and human-rated retrieval quality."],
-            ["Content Moderation","data.jpg","Policy-aligned datasets for nuanced harassment and hate-speech detection."],
-            ["Education & Research","llm.jpg","Academic partnerships for corpus building and benchmark creation."],
-            ["Public Sector & NGOs","hero.jpg","Civic-tech language coverage for underserved communities."]
+            ["Search & RAG","ragai.jpg","Domain corpora, chunking evaluation, and human-rated retrieval quality."],
+            ["Content Moderation","m.jpg","Policy-aligned datasets for nuanced harassment and hate-speech detection."],
+            ["Education & Research","m1.jpg","Academic partnerships for corpus building and benchmark creation."],
+            ["Public Sector & NGOs","m2.jpg","Civic-tech language coverage for underserved communities."]
           ].map(([title, img, body], i) => (
             <Card key={i} title={title} img={img} body={body} href="/use-cases" />
           ))}
@@ -350,10 +391,10 @@ export default function Home() {
         </div>
         <div className="grid md:grid-cols-4 gap-6 mt-8">
           {[
-            ["Scope","1.webp","Define languages, tasks, and policy constraints."],
-            ["Pilot","2.webp","Small sample to validate quality and cost."],
-            ["Scale","3.webp","Expand with QA loops and analytics."],
-            ["Deliver","4.webp","Datasets, reports, and integration help."]
+            ["Scope","scope.jpg","Define languages, tasks, and policy constraints."],
+            ["Pilot","pilot.jpg","Small sample to validate quality and cost."],
+            ["Scale","scale.jpg","Expand with QA loops and analytics."],
+            ["Deliver","deliver.jpg","Datasets, reports, and integration help."]
           ].map(([t,img,desc],i)=>(
             <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white reveal">
               <div className="aspect-[16/9] rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
@@ -414,9 +455,9 @@ export default function Home() {
               <Link to="/contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
                 Request a Quote
               </Link>
-              <a href="#contact-form" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
+              {/* <a href="#contact-form" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
                 Contact
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

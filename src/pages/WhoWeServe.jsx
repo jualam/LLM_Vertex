@@ -148,33 +148,7 @@ export default function WhoWeServe() {
           </div>
         </motion.section> */}
 
-        {/* CTA */}
-        <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.div variants={item} className="relative overflow-hidden rounded-2xl bg-slate-900 text-slate-100 p-6 md:p-8">
-            <div className="absolute inset-0 bg-[radial-gradient(800px_220px_at_0%_0%,rgba(56,189,248,0.15),transparent),radial-gradient(700px_200px_at_100%_100%,rgba(244,114,182,0.12),transparent)]" />
-            <div className="relative">
-              <h3 className="text-xl md:text-2xl font-semibold">Let’s build AI for everyone</h3>
-              <p className="mt-2 text-slate-300">Partner with LLM Vertex to create data and evaluations that reflect the world’s true diversity.</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {/* White button with black text */}
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-slate-100 transition"
-                >
-                  Start a Conversation
-                </a>
-
-                {/* Secondary outline button */}
-                <a
-                  href="/who-we-serve"
-                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm text-white-700 hover:text-black hover:bg-slate-50 transition"
-                >
-                  Explore Services
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </motion.section>
+       
       </div>
     </div>
   );

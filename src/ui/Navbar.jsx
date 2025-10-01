@@ -83,14 +83,14 @@ const Navbar = () => {
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
-          <NavItem to="/contact" onNavigate={closeMenu}>Contact</NavItem>
-          <Link
+          <NavItem to="/contact" onNavigate={closeMenu}>Contact/Request a Quote</NavItem>
+          {/* <Link
             to="/contact"
             onClick={closeMenu}
             className="ml-2 inline-flex items-center gap-2 rounded-xl bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800 transition"
           >
             Request a Quote
-          </Link>
+          </Link> */}
         </nav>
 
         <button
