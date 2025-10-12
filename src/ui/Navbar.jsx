@@ -111,6 +111,7 @@ const Navbar = () => {
             <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
             <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
             <NavItem to="/work-with-us" onNavigate={closeMenu}>Work With Us</NavItem>
+            <NavItem to="/investor" onNavigate={closeMenu}>Investor</NavItem>
             <NavItem to="/contact" onNavigate={closeMenu}>Contact</NavItem>
             <Link
               to="/contact"
