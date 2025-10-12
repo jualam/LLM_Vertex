@@ -83,6 +83,7 @@ const Navbar = () => {
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
+          <NavItem to="/investor" onNavigate={closeMenu}>Investor</NavItem>
           <NavItem to="/contact" onNavigate={closeMenu}>Contact/Request a Quote</NavItem>
           {/* <Link
             to="/contact"
