@@ -339,6 +339,36 @@ export default function Investor() {
           </motion.form>
         </motion.section> */}
 
+
+        {/* Lets talk if you are interested to invest */}
+        <motion.section
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-12"
+        >
+        <motion.h2 variants={item} className="text-center text-2xl md:text-3xl font-semibold">
+            Let’s Talk Investment
+        </motion.h2>
+
+        <motion.p
+            variants={item}
+            className="text-center text-slate-600 mt-2 max-w-3xl mx-auto"
+        >
+            If you’re interested to invest or want to discuss future prospects, please reach out to us at{" "}
+            <a
+            href="mailto:info@llmvertex.com"
+            className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-500"
+            >
+            info@llmvertex.com
+            </a>.
+        </motion.p>
+
+        </motion.section>
+
+
+
         {/* FAQ (native details for accessibility) */}
         <motion.section
           variants={container}
