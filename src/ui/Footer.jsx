@@ -11,13 +11,14 @@ const Footer = () => {
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="h-10 w-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden ring-1 ring-slate-200">
+            <div className="h-12 w-24 rounded-lg bg-white flex items-center justify-center overflow-hidden ">
               <img
                 src="logo/llm_logo1.png"
                 alt="LLM Vertex Logo"
                 className="h-full w-full object-contain"
               />
             </div>
+            
             <span className="text-lg font-bold tracking-tight text-slate-900">
               LLM Vertex
             </span>
