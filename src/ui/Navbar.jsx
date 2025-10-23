@@ -71,7 +71,7 @@ const Navbar = () => {
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }}>
           <div className="h-15 w-15 rounded-lg flex items-center justify-center overflow-hidden">
-            <img src="logo/logo.png" alt="LLM Vertex Logo" className="h-full w-full object-contain" />
+            <img src="logo/llm_logo1.png" alt="LLM Vertex Logo" className="h-full w-full object-contain" />
           </div>
 
           <span className="font-bold tracking-tight">LLM Vertex</span>

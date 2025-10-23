@@ -115,7 +115,7 @@ export default function WorkWithUs() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdh941YnHgePYvKWm6Zrbf_RwIWW16F0tVctIeI91gMqR8yGw/viewform?usp=sharing&ouid=113627358098737480565"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfEqSWn0PI8EX3Zr5hHpsvlOsPAaGisVZp0YSx5eXny7Rt9Uw/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center overflow-hidden rounded-xl px-5 py-3 text-sm font-medium text-white bg-black hover:bg-slate-800 transition focus:outline-none"

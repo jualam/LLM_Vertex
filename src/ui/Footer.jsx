@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 justify-center md:justify-start">
             <div className="h-10 w-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden ring-1 ring-slate-200">
               <img
-                src="logo/logo.png"
+                src="logo/llm_logo1.png"
                 alt="LLM Vertex Logo"
                 className="h-full w-full object-contain"
               />

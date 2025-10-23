@@ -86,7 +86,7 @@ export default function Contact() {
           Prefer a quick form? Submit basic details and we’ll follow up.
         </div>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLScetHA8HG-dE5hmIrmcQeqk6WSJOY6jr-Mytu40_F7tpd1OVg/viewform?usp=header"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdUC8kRwVb7UGUXs2GA_HSVQkjKuQXxuxN-TyG7mhysMpBVqg/viewform"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 rounded-xl bg-black text-white px-5 py-3 text-sm hover:opacity-90"
