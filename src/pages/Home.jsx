@@ -292,6 +292,13 @@ export default function Home() {
             href="/services#finetune"
             img="fine_tune.jpg"
           />
+          <Card
+            id="custom_agents"
+            title="Custom Agentic AI Solutions"
+            body="End-to-end development of intelligent, goal-driven AI agents customized for small businesses and individuals from task automation to personalized workflow optimization and decision support."
+            href="/services#custom_agents"
+            img="ai_agent.jpg"
+          />
         </div>
       </section>
 
