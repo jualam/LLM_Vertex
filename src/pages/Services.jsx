@@ -44,7 +44,19 @@ export default function Services() {
         "Pilot → Production handoff, documentation, and ops"
       ],
       bg: "from-emerald-100 via-cyan-100 to-indigo-100"
-    }
+    },
+    {
+      id: "custom_agents",
+      title: "Custom Agentic AI Solutions",
+      bullets: [
+        "End-to-end design and deployment of intelligent, goal-driven AI agents",
+        "Automation of repetitive workflows for small businesses and individuals",
+        "Personalized task management and decision-support capabilities",
+        "Seamless integration into existing tools, apps, and business processes"
+      ],
+      bg: "from-violet-100 via-indigo-100 to-sky-100"
+    },
+
   ];
 
   const steps = [
