@@ -56,6 +56,18 @@ export default function Services() {
       ],
       bg: "from-violet-100 via-indigo-100 to-sky-100"
     },
+    {
+      id: "ai_adoption",
+      title: "AI Adoption & Transformation Services",
+      bullets: [
+        "AI adoption research tailored to your organization",
+        "Digital transformation guidance grounded in human-centered design",
+        "Assessment of your company’s AI readiness and strategic needs",
+        "Support for successful AI integration with employees and workflows",
+        "Comprehensive AI risk and impact assessments for safe deployment"
+      ],
+      bg: "from-violet-100 via-indigo-100 to-sky-100"
+    },
 
   ];
 
