@@ -68,6 +68,19 @@ export default function Services() {
       ],
       bg: "from-violet-100 via-indigo-100 to-sky-100"
     },
+    {
+      id: "ai_edtech",
+      title: "AI-Powered EdTech Solutions",
+      bullets: [
+        "AI-powered Learning Management Systems customized for your institution",
+        "Bespoke AI solutions for teaching, learning, and operations",
+        "AI-driven Parent Guiding tools for engagement and home support",
+        "Adaptive learning experiences powered by intelligent systems",
+        "Actionable academic analytics to boost performance and retention",
+        "Smooth AI integration with your existing platforms and workflows"
+      ],
+      bg: "from-violet-100 via-indigo-100 to-sky-100"
+    },
 
   ];
 
