@@ -299,6 +299,22 @@ export default function Home() {
             href="/services#custom_agents"
             img="ai_agent.jpg"
           />
+
+          <Card
+            id="ai_adoption"
+            title="AI Adoption & Transformation Services"
+            body="End-to-end AI adoption and digital transformation services tailored to your organization covering AI readiness research, human-centered strategy design, risk and impact assessments, and seamless integration of AI into employee workflows for safe, scalable, and sustainable deployment."
+            href="/services#ai_adoption"
+            img="ai_adoption.jpg"
+          />
+
+          <Card
+            id="edtech_ai"
+            title="AI-Powered EdTech Solutions"
+            body="End-to-end AI-driven EdTech solutions designed for modern institutions featuring customized intelligent LMS platforms, bespoke AI tools for teaching and administration, adaptive learning systems, parent engagement technologies, performance-driven academic analytics, and seamless integration with your existing digital ecosystem."
+            href="/services#edtech_ai"
+            img="ed_tech.jpg"
+          />
         </div>
       </section>
 
