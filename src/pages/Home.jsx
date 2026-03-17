@@ -94,7 +94,6 @@ export default function Home() {
               <div className="flex flex-wrap gap-2 mb-4">
                 <Pill>Inclusive AI</Pill>
                 <Pill>Low-resource Languages</Pill>
-                <Pill>OPT/CPT Programs</Pill>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
@@ -106,10 +105,10 @@ export default function Home() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  to="/work-with-us"
+                  to="/work-force-development"
                   className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800"
                 >
-                  Work with Us
+                  Work Force Development
                 </Link>
                 <Link
                   to="/services"
@@ -147,7 +146,7 @@ export default function Home() {
 
         {/* TRUST BAR (Marquee style) */}
         <div className="mt-12 reveal">
-          
+
 
           {/* Inline keyframes for marquee */}
           <style>{`
@@ -171,8 +170,8 @@ export default function Home() {
           {/* Constrain width to main page content */}
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-x uppercase tracking-wide text-slate-700 mb-3">
-            Our Diversity
-          </div>
+              Our Diversity
+            </div>
             <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
               <div
                 className="marquee-track gap-8 py-6 will-change-transform text-sm md:text-base"
@@ -197,18 +196,17 @@ export default function Home() {
                 ].map((lang, i) => (
                   <span
                     key={`row1-${i}`}
-                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold text-xl transition transform hover:scale-105 ${
-                      [
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                      ][i % 8]
-                    }`}
+                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold text-xl transition transform hover:scale-105 ${[
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                    ][i % 8]
+                      }`}
                   >
                     {lang}
                   </span>
@@ -234,18 +232,17 @@ export default function Home() {
                 ].map((lang, i) => (
                   <span
                     key={`row2-${i}`}
-                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold transition transform hover:scale-105 ${
-                      [
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                        "bg-black",
-                      ][i % 8]
-                    }`}
+                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold transition transform hover:scale-105 ${[
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                      "bg-black",
+                    ][i % 8]
+                      }`}
                   >
                     {lang}
                   </span>
@@ -280,8 +277,8 @@ export default function Home() {
           />
           <Card
             id="talent"
-            title="Trained AI Data Engineers"
-            body="On-demand multilingual talent trained in data quality, ethics, and tooling across use-cases."
+            title="AI Training for Workforce Development"
+            body="Comprehensive training in AI data collection, annotation, and evaluation."
             href="/services#talent"
             img="llm.jpg"
           />
@@ -351,8 +348,8 @@ export default function Home() {
       </section>
 
 
-        {/* PROGRAM FOR STUDENTS (OPT/CPT) */}
-      <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
+      {/* PROGRAM FOR STUDENTS (OPT/CPT) */}
+      {/* <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
         <div className="rounded-3xl border border-slate-200 p-8 md:p-12 bg-white reveal">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -369,9 +366,9 @@ export default function Home() {
                 <Link to="/work-with-us" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
                   Apply
                 </Link>
-                {/* <Link to="/programs" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
+                <Link to="/programs" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
                   Learn more
-                </Link> */}
+                </Link>
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
@@ -379,7 +376,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
 
@@ -392,19 +389,19 @@ export default function Home() {
 
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            ["Conversational AI & Support","data.jpg","Multilingual intents, NER, and QA data for customer support and assistants."],
-            ["Safety & Alignment","llm.jpg","Red-teaming prompts and culturally-aware safety evaluation sets."],
-            ["Search & RAG","ragai.jpg","Domain corpora, chunking evaluation, and human-rated retrieval quality."],
-            ["Content Moderation","m.jpg","Policy-aligned datasets for nuanced harassment and hate-speech detection."],
-            ["Education & Research","m1.jpg","Academic partnerships for corpus building and benchmark creation."],
-            ["Public Sector & NGOs","m2.jpg","Civic-tech language coverage for underserved communities."]
+            ["Conversational AI & Support", "data.jpg", "Multilingual intents, NER, and QA data for customer support and assistants."],
+            ["Safety & Alignment", "llm.jpg", "Red-teaming prompts and culturally-aware safety evaluation sets."],
+            ["Search & RAG", "ragai.jpg", "Domain corpora, chunking evaluation, and human-rated retrieval quality."],
+            ["Content Moderation", "m.jpg", "Policy-aligned datasets for nuanced harassment and hate-speech detection."],
+            ["Education & Research", "m1.jpg", "Academic partnerships for corpus building and benchmark creation."],
+            ["Public Sector & NGOs", "m2.jpg", "Civic-tech language coverage for underserved communities."]
           ].map(([title, img, body], i) => (
             <Card key={i} title={title} img={img} body={body} href="/use-cases" />
           ))}
         </div>
       </section>
 
-    
+
 
       {/* PROCESS */}
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
@@ -414,18 +411,18 @@ export default function Home() {
         </div>
         <div className="grid md:grid-cols-4 gap-6 mt-8">
           {[
-            ["Scope","scope.jpg","Define languages, tasks, and policy constraints."],
-            ["Pilot","pilot.jpg","Small sample to validate quality and cost."],
-            ["Scale","scale.jpg","Expand with QA loops and analytics."],
-            ["Deliver","deliver.jpg","Datasets, reports, and integration help."]
-          ].map(([t,img,desc],i)=>(
+            ["Scope", "scope.jpg", "Define languages, tasks, and policy constraints."],
+            ["Pilot", "pilot.jpg", "Small sample to validate quality and cost."],
+            ["Scale", "scale.jpg", "Expand with QA loops and analytics."],
+            ["Deliver", "deliver.jpg", "Datasets, reports, and integration help."]
+          ].map(([t, img, desc], i) => (
             <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white reveal">
               <div className="aspect-[16/9] rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
                 <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" />
               </div>
               <div className="mt-4 flex items-center gap-2">
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-xs">
-                  {i+1}
+                  {i + 1}
                 </span>
                 <h4 className="font-semibold">{t}</h4>
               </div>

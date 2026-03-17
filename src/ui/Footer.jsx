@@ -18,7 +18,7 @@ const Footer = () => {
                 className="h-full w-full object-contain"
               />
             </div>
-            
+
             <span className="text-lg font-bold tracking-tight text-slate-900">
               LLM Vertex
             </span>
@@ -43,10 +43,10 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/work-with-us"
+                to="/careers"
                 className="hover:text-slate-900 transition-colors"
               >
-                Careers / Work with us
+                Careers
               </Link>
             </li>
             <li>

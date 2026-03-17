@@ -70,7 +70,7 @@ export default function WorkWithUs() {
             <div className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-100 via-fuchsia-100 to-amber-100" />
             <h3 className="font-semibold text-lg">Who We’re Looking For</h3>
             <ul className="mt-3 space-y-2 text-slate-700">
-              <li>• International students on F1 visas seeking <span className="font-medium">OPT</span> or <span className="font-medium">CPT</span>.</li>
+              {/* <li>• International students on F1 visas seeking <span className="font-medium">OPT</span> or <span className="font-medium">CPT</span>.</li> */}
               <li>• Multilingual talent bringing unique cultural perspectives.</li>
               <li>• People passionate about inclusive, ethical AI.</li>
               <li>• Detail‑oriented contributors who love data quality.</li>
@@ -84,7 +84,7 @@ export default function WorkWithUs() {
             <ul className="mt-3 space-y-2 text-slate-700">
               <li>• Hands‑on experience in AI data pipelines.</li>
               <li>• Meaningful impact on global language inclusion.</li>
-              <li>• Support for <span className="font-medium">OPT/CPT</span> work authorization.</li>
+              {/* <li>• Support for <span className="font-medium">OPT/CPT</span> work authorization.</li> */}
               <li>• Mentorship, workshops, and growth paths.</li>
             </ul>
           </motion.div>
@@ -115,12 +115,12 @@ export default function WorkWithUs() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfEqSWn0PI8EX3Zr5hHpsvlOsPAaGisVZp0YSx5eXny7Rt9Uw/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative inline-flex items-center justify-center overflow-hidden rounded-xl px-5 py-3 text-sm font-medium text-white bg-black hover:bg-slate-800 transition focus:outline-none"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfEqSWn0PI8EX3Zr5hHpsvlOsPAaGisVZp0YSx5eXny7Rt9Uw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center justify-center overflow-hidden rounded-xl px-5 py-3 text-sm font-medium text-white bg-black hover:bg-slate-800 transition focus:outline-none"
               >
-                  <span className="relative z-10">Submit Your Resume</span>
+                <span className="relative z-10">Submit Your Resume</span>
               </a>
 
               <Link

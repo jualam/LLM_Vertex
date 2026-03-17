@@ -9,6 +9,7 @@ import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import Privacy_Policy from "../pages/Privacy_Policy";
 import Investor from "../pages/Investor";
+import WorkForceDevelopment from "../pages/WorkForceDevelopment";
 
 export const router = createBrowserRouter([
   {
@@ -17,8 +18,9 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
+      { path: "/work-force-development", element: <WorkForceDevelopment /> },
       { path: "/services", element: <Services /> },
-      { path: "/work-with-us", element: <WorkWithUs /> },
+      { path: "/careers", element: <WorkWithUs /> },
       { path: "/who-we-serve", element: <WhoWeServe /> },
       { path: "/contact", element: <Contact /> },
       { path: "/privacy-policy", element: <Privacy_Policy /> },

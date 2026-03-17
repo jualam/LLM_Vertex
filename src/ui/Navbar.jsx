@@ -48,8 +48,7 @@ const NavItem = ({ to, children, onNavigate }) => {
       to={to}
       onClick={handleClick}
       className={({ isActive }) =>
-        `px-3 py-2 rounded-lg text-sm font-medium transition hover:bg-slate-100 ${
-          isActive ? "bg-slate-100" : "text-slate-700"
+        `px-3 py-2 rounded-lg text-sm font-medium transition hover:bg-slate-100 ${isActive ? "bg-slate-100" : "text-slate-700"
         }`
       }
     >
@@ -79,12 +78,13 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-1">
           <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
-          <NavItem to="/work-with-us" onNavigate={closeMenu}>Work With Us</NavItem>
+          <NavItem to="/work-force-development" onNavigate={closeMenu}>Work Force Development</NavItem>
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
           <NavItem to="/investor" onNavigate={closeMenu}>Investor</NavItem>
-          <NavItem to="/contact" onNavigate={closeMenu}>Contact/Request a Quote</NavItem>
+          <NavItem to="/careers" onNavigate={closeMenu}>Career</NavItem>
+          <NavItem to="/contact" onNavigate={closeMenu}>Contact</NavItem>
           {/* <Link
             to="/contact"
             onClick={closeMenu}

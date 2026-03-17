@@ -25,12 +25,12 @@ export default function Services() {
     },
     {
       id: "talent",
-      title: "Trained AI Data Engineers",
+      title: "AI Training for Workforce Development",
       bullets: [
-        "On‑demand staffing & training pipelines",
-        "Multilingual, multicultural talent from varied nationalities",
-        "Hands‑on experience with QA, red‑teaming, & evaluation",
-        "Ethics, safety, and privacy training included"
+        "Comprehensive training in AI data collection, annotation, and evaluation",
+        "Real‑world projects with global language datasets",
+        "Mentorship from industry experts and AI practitioners",
+        "Career development and networking opportunities"
       ],
       bg: "from-sky-100 via-violet-100 to-rose-100"
     },
@@ -147,7 +147,7 @@ export default function Services() {
           <div className="mt-6 grid sm:grid-cols-2 md:grid-cols-5 gap-4">
             {steps.map(([t, d], i) => (
               <motion.div key={t} variants={item} className="relative rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm">
-                <div className="mx-auto mb-2 h-8 w-8 flex items-center justify-center rounded-full bg-black text-white text-sm font-bold">{i+1}</div>
+                <div className="mx-auto mb-2 h-8 w-8 flex items-center justify-center rounded-full bg-black text-white text-sm font-bold">{i + 1}</div>
                 <div className="font-semibold">{t}</div>
                 <div className="mt-1 text-slate-600 text-sm">{d}</div>
               </motion.div>
@@ -174,7 +174,7 @@ export default function Services() {
         <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
           <motion.h2 variants={item} className="text-2xl md:text-3xl font-semibold text-center">FAQs</motion.h2>
           <div className="mt-6 grid md:grid-cols-3 gap-6">
-            {faqs.map(([q,a]) => (
+            {faqs.map(([q, a]) => (
               <motion.div key={q} variants={item} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="font-semibold">{q}</div>
                 <p className="text-slate-700 mt-2 text-sm">{a}</p>
@@ -183,7 +183,7 @@ export default function Services() {
           </div>
         </motion.section>
 
-        
+
       </div>
     </div>
   );
