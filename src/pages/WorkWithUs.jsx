@@ -58,7 +58,7 @@ export default function WorkWithUs() {
           <motion.div variants={item} className="rounded-2xl border border-slate-200/80 bg-white/70 backdrop-blur p-6 md:p-8 shadow-[0_8px_40px_-12px_rgba(2,6,23,0.15)]">
             <h2 className="text-xl md:text-2xl font-semibold">Our Mission</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              Every year, more than one million international students arrive in the United States to pursue higher education. Many of them come from regions where their languages and cultures remain invisible in today’s AI landscape. We see this as an incredible opportunity. By working with us, your knowledge and cultural perspective can help create language models that are more inclusive, more human, and more connected to the global community.
+              Each year, people from diverse linguistic and cultural backgrounds come to the United States to study, work, and build their futures. Many of these communities remain underrepresented in today’s AI landscape. We see this as an incredible opportunity. By working with us, your knowledge and cultural perspective can help create language models that are more inclusive, more human, and more connected to the global community.
             </p>
           </motion.div>
         </motion.section>

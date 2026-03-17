@@ -24,13 +24,14 @@ export default function Services() {
       bg: "from-cyan-100 via-fuchsia-100 to-amber-100"
     },
     {
-      id: "talent",
+      id: "trainning",
       title: "AI Training for Workforce Development",
       bullets: [
-        "Comprehensive training in AI data collection, annotation, and evaluation",
-        "Real‑world projects with global language datasets",
-        "Mentorship from industry experts and AI practitioners",
-        "Career development and networking opportunities"
+        "Customized AI training programs aligned with organizational goals and workforce skill levels",
+        "Practical, hands-on training to help employees effectively use AI tools in daily tasks",
+        "Building AI literacy to improve understanding, adoption, and collaboration with AI systems",
+        "Guidance on responsible and ethical use of AI in the workplace",
+        "Ongoing support and learning resources to keep teams up to date with evolving AI technologies"
       ],
       bg: "from-sky-100 via-violet-100 to-rose-100"
     },

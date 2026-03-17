@@ -276,10 +276,10 @@ export default function Home() {
             img="data.jpg"
           />
           <Card
-            id="talent"
+            id="training"
             title="AI Training for Workforce Development"
-            body="Comprehensive training in AI data collection, annotation, and evaluation."
-            href="/services#talent"
+            body="Practical AI training and career support for students and graduates from all disciplines."
+            href="/services#training"
             img="llm.jpg"
           />
           <Card
