@@ -106,14 +106,10 @@ export default function WorkWithUs() {
         <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-10">
           <motion.div variants={item} className="rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur p-6 md:p-8 shadow-[0_8px_40px_-12px_rgba(2,6,23,0.15)]">
             <h2 className="text-xl md:text-2xl font-semibold">How to Apply</h2>
-            <ol className="list-decimal pl-5 mt-3 text-slate-700 space-y-2">
-              <li>Prepare a one‑page resume (PDF preferred).</li>
-              <li>Include contact info and the languages you speak.</li>
-              <li>Share any relevant portfolio, GitHub, or writing samples.</li>
-              <li>Submit via email or the form below. We’ll reach out after review.</li>
-            </ol>
+            <p className="mt-3 text-slate-700 space-y-2">We are not currently hiring at this time. Please follow LLM Vertex for future opportunities and updates on available positions.</p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+
+            {/* <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfEqSWn0PI8EX3Zr5hHpsvlOsPAaGisVZp0YSx5eXny7Rt9Uw/viewform"
                 target="_blank"
@@ -129,7 +125,7 @@ export default function WorkWithUs() {
               >
                 Questions? Contact us
               </Link>
-            </div>
+            </div> */}
           </motion.div>
         </motion.section>
 

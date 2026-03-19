@@ -10,145 +10,173 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
+  }
 };
 
+const cards = [
+  [
+    "AI Startups & LLM Developers",
+    "Build smarter multilingual AI, faster, fairer, and ready to scale."
+  ],
+  [
+    "Academic Researchers",
+    "Advance language equity with reproducible, impactful AI research."
+  ],
+  [
+    "NGOs & Non-profits",
+    "Advance inclusion through AI adoption research and workforce training."
+  ],
+  [
+    "Government & Public Sector",
+    "Deploy responsible AI with fairness, policy alignment, and workforce training for real-world impact."
+  ]
+];
+
+const partnerServices = [
+  {
+    title: "Multilingual Data & AI Development",
+    description:
+      "Consent-driven data, annotation, evaluation, and model tuning for inclusive AI."
+  },
+  {
+    title: "Agentic AI & Custom Solutions",
+    description:
+      "Design and deploy intelligent AI systems to automate workflows and support decision-making."
+  },
+  {
+    title: "AI Adoption Research & Integration",
+    description:
+      "Research, readiness assessment, and support for responsible AI implementation."
+  },
+  {
+    title: "Workforce Training & Development",
+    description:
+      "Hands-on training in AI tools, ethics, and workflows to build real-world capability."
+  },
+  {
+    title: "AI-Powered EdTech Solutions",
+    description:
+      "Custom AI tools for teaching, learning, and academic performance."
+  },
+  {
+    title: "Responsible AI Policy & Governance",
+    description:
+      "Guidance on fairness, risk review, governance, and policy-aligned AI deployment."
+  }
+];
+
 export default function WhoWeServe() {
-  const cards = [
-    ["AI Startups & LLM Developers", "Curated multilingual datasets, evaluation, and tuning support."],
-    ["Academic Researchers", "Language equity, low‑resource corpora, and reproducible evaluations."],
-    ["NGOs & Non‑profits", "Culturally‑aware data for inclusion and access initiatives."],
-    ["Government & Public Sector", "Policy‑aligned datasets and fairness‑focused project support."],
-  ];
-
-  const useCases = [
-    {
-      title: "Multilingual Data Pipelines",
-      points: [
-        "Collection with consent and policy alignment",
-        "Dialect‑aware annotation & quality assurance",
-        "Red‑teaming for safety and bias"
-      ]
-    },
-    {
-      title: "Model Evaluation & Alignment",
-      points: [
-        "Benchmarks for underrepresented languages",
-        "Human‑in‑the‑loop evals with cultural nuance",
-        "Fine‑tuning partnerships"
-      ]
-    },
-    {
-      title: "Workforce Training",
-      points: [
-        "International student talent (OPT/CPT)",
-        "Up‑skilling on tools, ethics, and QA",
-        "Deployment‑ready AI data engineers"
-      ]
-    }
-  ];
-
-  const stats = [
-    ["45+", "languages & dialects"],
-    ["10k+", "hours of labeled data"],
-    ["95%", "QA accuracy on gold sets"],
-    ["100%", "policy‑aligned workflows"]
-  ];
-
   return (
     <div className="relative overflow-clip">
-      {/* Ambient gradient background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full blur-3xl bg-gradient-to-br from-cyan-400/30 via-indigo-500/20 to-fuchsia-500/20" />
-        <div className="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full blur-3xl bg-gradient-to-tr from-amber-300/30 via-rose-400/20 to-sky-400/20" />
+        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-400/30 via-indigo-500/20 to-fuchsia-500/20 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-amber-300/30 via-rose-400/20 to-sky-400/20 blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-16 md:py-20">
-        {/* Header */}
+      <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
         <motion.div variants={container} initial="hidden" animate="show" className="text-center">
-          <motion.h1 variants={item} className="text-4xl md:text-5xl font-extrabold tracking-tight">Who We Serve</motion.h1>
-          <motion.p variants={item} className="mx-auto mt-4 max-w-3xl text-slate-600 text-base md:text-lg leading-relaxed">
-            We support organizations building ethical, inclusive, and multilingual AI  from early stage startups to public institutions and mission driven NGOs.
+          <motion.h1 variants={item} className="text-4xl font-extrabold tracking-tight md:text-5xl">
+            Who We Serve
+          </motion.h1>
+          <motion.p variants={item} className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+            We support academia and organizations in building ethical, inclusive, and multilingual AI. We also conduct AI adoption research and provide workforce training for public and private institutions, as well as mission-driven NGOs.
           </motion.p>
           <motion.div variants={item} className="mx-auto mt-6 h-[3px] w-28 rounded-full bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-amber-300">
-            <div className="h-full w-full bg-white/40 animate-pulse rounded-full" />
+            <div className="h-full w-full animate-pulse rounded-full bg-white/40" />
           </motion.div>
         </motion.div>
 
-        {/* Audience Cards */}
-        <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-10 grid md:grid-cols-2 gap-6">
+        <motion.section
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="mt-10 grid gap-6 md:grid-cols-2"
+        >
           {cards.map(([title, body]) => (
             <motion.div
               key={title}
               variants={item}
               className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl"
             >
-              <div className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-100 via-fuchsia-100 to-amber-100" />
-              <h3 className="font-semibold text-lg">{title}</h3>
-              <p className="text-slate-600 mt-2 text-sm">{body}</p>
-              {/* <div className="mt-4 inline-flex items-center text-sm font-medium text-slate-900/70 group-hover:text-slate-900">
-                Learn more
-                <svg className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
-              </div> */}
+              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-cyan-100 via-fuchsia-100 to-amber-100 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
             </motion.div>
           ))}
         </motion.section>
 
-        {/* Use Cases */}
-        <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.h2 variants={item} className="text-2xl md:text-3xl font-semibold text-center">What We Do for Our Partners</motion.h2>
-          <motion.p variants={item} className="text-center text-slate-600 mt-2 max-w-3xl mx-auto">Practical collaborations that combine culture, language, and technology.</motion.p>
+        <motion.section
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="mt-14"
+        >
+          <motion.h2 variants={item} className="text-center text-2xl font-semibold text-slate-900 md:text-3xl">
+            What We Do for Our Partners
+          </motion.h2>
+          <motion.p variants={item} className="mx-auto mt-3 max-w-3xl text-center text-base leading-relaxed text-slate-600">
+            Practical support for multilingual AI, adoption research, and workforce development.
+          </motion.p>
 
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {useCases.map((u) => (
-              <motion.div key={u.title} variants={item} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-lg">{u.title}</h3>
-                <ul className="mt-3 space-y-2 text-slate-700">
-                  {u.points.map((p) => (<li key={p}>• {p}</li>))}
-                </ul>
-              </motion.div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {partnerServices.map((service) => (
+              <motion.article
+                key={service.title}
+                variants={item}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="py-2 px-4 text-center rounded-xl bg-slate-100 text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
+                  {service.title.split(" ")[0]}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold leading-snug text-slate-900">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  {service.description}
+                </p>
+              </motion.article>
             ))}
           </div>
         </motion.section>
 
-        {/* Impact Stats */}
-        {/* <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.h2 variants={item} className="text-2xl md:text-3xl font-semibold text-center">Impact Snapshot</motion.h2>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map(([num, label]) => (
-              <motion.div key={label} variants={item} className="rounded-2xl border border-slate-200 bg-white py-6 text-center shadow-sm">
-                <div className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-amber-500">{num}</div>
-                <div className="mt-1 text-slate-600 text-sm">{label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section> */}
-
-        {/* Industries & Regions */}
-        <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.h2 variants={item} className="text-2xl md:text-3xl font-semibold text-center">Industries & Regions</motion.h2>
-          <motion.p variants={item} className="text-center text-slate-600 mt-2 max-w-3xl mx-auto">Strong coverage in low‑resource languages across education, public services, health, and civic tech.</motion.p>
-          <div className="mt-6 grid md:grid-cols-3 gap-4">
-            {["Education & EdTech","Civic & GovTech","Healthcare & Public Health","Humanitarian & Social Impact","Search & Assistant Apps","Fintech & Customer Ops"].map((x) => (
-              <motion.div key={x} variants={item} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">
-                {x}
+        <motion.section
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="mt-12"
+        >
+          <motion.h2 variants={item} className="text-center text-2xl font-semibold md:text-3xl">
+            Industries & Regions
+          </motion.h2>
+          <motion.p variants={item} className="mx-auto mt-2 max-w-3xl text-center text-slate-600">
+            Strong coverage in low-resource languages across education, public services, health, and civic tech.
+          </motion.p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              "Education & EdTech",
+              "Civic & GovTech",
+              "Healthcare & Public Health",
+              "Humanitarian & Social Impact",
+              "Search & Assistant Apps",
+              "Fintech & Customer Ops"
+            ].map((entry) => (
+              <motion.div
+                key={entry}
+                variants={item}
+                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
+              >
+                {entry}
               </motion.div>
             ))}
           </div>
         </motion.section>
-
-        {/* Logos Placeholder */}
-        {/* <motion.section variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} className="mt-12">
-          <motion.h2 variants={item} className="text-2xl md:text-3xl font-semibold text-center">Selected Partners</motion.h2>
-          <motion.p variants={item} className="text-center text-slate-600 mt-2">Add your partner logos here.</motion.p>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1,2,3,4,5,6,7,8].map((i) => (
-              <motion.div key={i} variants={item} className="aspect-[3/2] rounded-xl border border-dashed border-slate-300 bg-white/70 backdrop-blur flex items-center justify-center text-slate-400 text-sm">Logo {i}</motion.div>
-            ))}
-          </div>
-        </motion.section> */}
-
-       
       </div>
     </div>
   );

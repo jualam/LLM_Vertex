@@ -127,18 +127,15 @@ export default function WorkForceDevelopment() {
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
+              <a
+                href="https://forms.gle/TJV4PkqgQcXnPf6CA"
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
               >
-                Talk to Us
-              </Link>
-              <Link
-                to="/services"
-                className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-              >
-                Explore Related Services
-              </Link>
+                Start Your AI Career Journey
+              </a>
+
             </motion.div>
           </div>
 
@@ -195,13 +192,12 @@ export default function WorkForceDevelopment() {
               className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl"
             >
               <div
-                className={`absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${
-                  [
-                    "bg-gradient-to-br from-cyan-100 via-sky-100 to-indigo-100",
-                    "bg-gradient-to-br from-amber-100 via-rose-100 to-fuchsia-100",
-                    "bg-gradient-to-br from-emerald-100 via-cyan-100 to-teal-100"
-                  ][index]
-                }`}
+                className={`absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${[
+                  "bg-gradient-to-br from-cyan-100 via-sky-100 to-indigo-100",
+                  "bg-gradient-to-br from-amber-100 via-rose-100 to-fuchsia-100",
+                  "bg-gradient-to-br from-emerald-100 via-cyan-100 to-teal-100"
+                ][index]
+                  }`}
               />
               <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
                 0{index + 1}
@@ -356,18 +352,15 @@ export default function WorkForceDevelopment() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                <a
+                  href="https://forms.gle/TJV4PkqgQcXnPf6CA"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl bg-slate-900 px-8 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
-                  Contact Us
-                </Link>
-                <Link
-                  to="/careers"
-                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-                >
-                  Visit Careers
-                </Link>
+                  Apply Now
+                </a>
+
               </div>
             </div>
           </motion.div>
