@@ -22,6 +22,7 @@ export default function About() {
     ["Partnership", "We meet you where you are: research or production."]
   ];
 
+  
   const stats = [
     ["15+", "languages & dialects"],
     ["10k+", "hours of labeled data"],
