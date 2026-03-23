@@ -107,19 +107,20 @@ const Navbar = () => {
         <div className="md:hidden border-t border-slate-200 bg-white">
           <div className="px-4 py-2 grid gap-1">
             <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
+            <NavItem to="/work-force-development" onNavigate={closeMenu}>Work Force Development</NavItem>
             <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
             <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
             <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
-            <NavItem to="/work-with-us" onNavigate={closeMenu}>Work With Us</NavItem>
             <NavItem to="/investor" onNavigate={closeMenu}>Investor</NavItem>
+            <NavItem to="/careers" onNavigate={closeMenu}>Career</NavItem>
             <NavItem to="/contact" onNavigate={closeMenu}>Contact</NavItem>
-            <Link
+            {/* <Link
               to="/contact"
               onClick={closeMenu}
               className="mt-2 inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800 transition"
             >
               Request a Quote
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}
