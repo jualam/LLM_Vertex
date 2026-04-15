@@ -1,11 +1,16 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const NavItem = ({ to, children, onNavigate }) => {
   const location = useLocation();
-  const navigate = useNavigate();
+  const isExternal = /^https?:\/\//.test(to);
 
   const handleClick = (e) => {
+    if (isExternal) {
+      onNavigate?.();
+      return;
+    }
+
     // Build absolute URLs for reliable compare
     const cur = new URL(
       location.pathname + location.search + location.hash,
@@ -43,6 +48,20 @@ const NavItem = ({ to, children, onNavigate }) => {
     // navigate(tgt.pathname + tgt.search + tgt.hash);
   };
 
+  if (isExternal) {
+    return (
+      <a
+        href={to}
+        onClick={() => onNavigate?.()}
+        target="_blank"
+        rel="noreferrer"
+        className="px-3 py-2 rounded-lg text-sm font-medium transition hover:bg-slate-100 text-slate-700"
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <NavLink
       to={to}
@@ -78,7 +97,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-1">
           <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
-          <NavItem to="/work-force-development" onNavigate={closeMenu}>Work Force Development</NavItem>
+          <NavItem to="https://workforce.llmvertex.com/" onNavigate={closeMenu}>Work Force Development</NavItem>
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
@@ -107,7 +126,7 @@ const Navbar = () => {
         <div className="md:hidden border-t border-slate-200 bg-white">
           <div className="px-4 py-2 grid gap-1">
             <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
-            <NavItem to="/work-force-development" onNavigate={closeMenu}>Work Force Development</NavItem>
+            <NavItem to="https://workforce.llmvertex.com/" onNavigate={closeMenu}>Work Force Development</NavItem>
             <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
             <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
             <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
