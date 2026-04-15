@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Packages from "../components/Packages";
-import { packageCatalog } from "../data/workforceDevelopmentData";
 
 /* ------------------------------
    Small helpers (no extra deps)
