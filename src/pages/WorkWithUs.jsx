@@ -121,7 +121,7 @@ export default function WorkWithUs() {
           >
             <p className="text-[13px] font-medium uppercase text-[#999999]">How to Apply</p>
             <h2 className="mt-3 text-3xl font-medium leading-[1.05] tracking-[-.8px] text-white md:text-5xl">
-              Future opportunities.
+              Future opportunities
             </h2>
             <p className="mt-5 text-[16px] leading-[1.35] text-[#999999]">
               We are not currently hiring at this time. Please follow LLM Vertex for future
