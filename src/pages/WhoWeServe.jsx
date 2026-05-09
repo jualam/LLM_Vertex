@@ -80,6 +80,27 @@ const industries = [
 export default function WhoWeServe() {
   return (
     <main className="bg-[#090909] text-white [font-feature-settings:'cv01','cv05','cv09','cv11','ss03','ss07']">
+      <style>{`
+        @keyframes serveCardShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .serve-card-surface {
+          background:
+            radial-gradient(circle at 12% 15%, rgba(255,255,255,.08), transparent 28%),
+            linear-gradient(135deg, #141414 0%, #1c1c1c 42%, #242424 58%, #141414 100%);
+          background-size: 180% 180%;
+          animation: serveCardShift 9s ease-in-out infinite;
+        }
+        .serve-card-surface:hover {
+          animation: serveCardShift 9s ease-in-out infinite, serveCardBounce .55s ease;
+        }
+        @keyframes serveCardBounce {
+          0%, 100% { transform: translateY(0) scale(1); }
+          35% { transform: translateY(-8px) scale(1.015); }
+          65% { transform: translateY(-3px) scale(1.006); }
+        }
+      `}</style>
       <section className="mx-auto max-w-7xl px-5 pb-5 pt-10 md:pb-6 md:pt-16">
         <Motion.div variants={container} initial="hidden" animate="show" className="text-center">
           <Motion.h1
@@ -107,18 +128,14 @@ export default function WhoWeServe() {
           viewport={{ once: true, amount: 0.2 }}
           className="mx-auto grid max-w-7xl gap-5 px-5 py-12 md:grid-cols-2 md:py-14"
         >
-          {cards.map(([title, body], index) => (
+          {cards.map(([title, body]) => (
             <Motion.div
               key={title}
               variants={item}
-              className={`rounded-[20px] p-6 ${
-                index === 0
-                  ? "bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_52%,#ff7a3d_100%)]"
-                  : "bg-[#141414]"
-              }`}
+              className="serve-card-surface rounded-[20px] border border-[#262626] p-6 transition-transform will-change-transform"
             >
               <h3 className="text-[24px] font-medium leading-tight text-white">{title}</h3>
-              <p className={`mt-3 text-[15px] leading-[1.35] ${index === 0 ? "text-white/85" : "text-[#999999]"}`}>
+              <p className="mt-3 text-[15px] leading-[1.35] text-[#999999]">
                 {body}
               </p>
             </Motion.div>
