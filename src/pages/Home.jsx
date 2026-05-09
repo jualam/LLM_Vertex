@@ -98,13 +98,13 @@ const SectionHeader = ({ eyebrow, title, body, link }) => (
     viewport={{ once: true, amount: 0.3 }}
     className="mx-auto max-w-7xl px-5"
   >
-    <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-      <div className="max-w-3xl">
+    <div className="flex flex-col items-center gap-5 text-center">
+      <div className="max-w-5xl">
         <p className="text-[13px] font-medium uppercase text-[#999999]">{eyebrow}</p>
         <h2 className="mt-3 text-4xl font-medium leading-none text-white md:text-6xl">
           {title}
         </h2>
-        {body && <p className="mt-4 max-w-2xl text-[15px] leading-[1.35] text-[#999999]">{body}</p>}
+        {body && <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-[1.35] text-[#999999]">{body}</p>}
       </div>
       {link && (
         <Link to={link.href} className="text-[14px] font-medium text-[#0099ff] hover:underline">
@@ -166,10 +166,10 @@ export default function Home() {
         }
       `}</style>
 
-      <section className="mx-auto max-w-7xl px-5 pb-20 pt-8 md:pb-28 md:pt-14">
+      <section className="mx-auto max-w-7xl px-5 pb-10 pt-8 md:pb-14 md:pt-14">
         <Motion.div variants={stagger} initial="hidden" animate="show">
-          <Motion.div variants={fadeUp} className="max-w-6xl">
-            <div className="mb-5 flex flex-wrap gap-2">
+          <Motion.div variants={fadeUp} className="mx-auto max-w-6xl text-center">
+            <div className="mb-5 flex flex-wrap justify-center gap-2">
               <span className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white">
                 Inclusive AI
               </span>
@@ -252,7 +252,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="pb-24 pt-12">
         <SectionHeader
           eyebrow="What We Do"
           title="Inclusive data services and workforce training."
@@ -306,7 +306,7 @@ export default function Home() {
         </Motion.div>
       </section>
 
-      <section className="py-24">
+      <section className="pb-24 pt-12">
         <SectionHeader
           eyebrow="Solutions & Use Cases"
           title="From data collection to fine-tuning and evaluation."
