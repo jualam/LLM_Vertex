@@ -1,103 +1,89 @@
+const contactCards = [
+  {
+    title: "General / Quotes",
+    body: "Project scope, pricing, and timelines.",
+    email: "info@llmvertex.com",
+  },
+  {
+    title: "Partnerships",
+    body: "Research, fine-tuning, and model collaborations.",
+    email: "partners@llmvertex.com",
+  },
+  {
+    title: "Careers",
+    body: "Training programs and career development opportunities.",
+    email: "talent@llmvertex.com",
+  },
+  {
+    title: "Locations",
+    body: "New Jersey, USA. Monday-Friday, 9:00-18:00 local time.",
+  },
+];
+
 export default function Contact() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16" id="contact">
-      <h1 className="text-3xl md:text-4xl font-extrabold text-black">Contact</h1>
-      <p className="text-slate-700 mt-3">
-        Reach out and we’ll get back to you shortly. For quick intake, use the Google Form below.
-      </p>
+    <main id="contact" className="bg-[#090909] text-white [font-feature-settings:'cv01','cv05','cv09','cv11','ss03','ss07']">
+      <style>{`
+        @keyframes contactCardShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .contact-card-surface {
+          background:
+            radial-gradient(circle at 12% 15%, rgba(255,255,255,.08), transparent 28%),
+            linear-gradient(135deg, #141414 0%, #1c1c1c 42%, #242424 58%, #141414 100%);
+          background-size: 180% 180%;
+          animation: contactCardShift 9s ease-in-out infinite;
+        }
+      `}</style>
+      <section className="mx-auto max-w-7xl px-5 pb-6 pt-10 text-center md:pb-8 md:pt-16">
+        <h1 className="text-4xl font-medium leading-[1] tracking-[-1.2px] text-white md:text-6xl md:tracking-[-2.4px] lg:text-[64px]">
+          Contact
+        </h1>
+        <p className="mx-auto mt-6 max-w-3xl text-[20px] leading-[1.35] text-[#999999]">
+          Reach out and we'll get back to you shortly. For quick intake, use the Google Form below.
+        </p>
+      </section>
 
-      {/* Info cards */}
-      <div className="mt-8 grid md:grid-cols-2 gap-4">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
-          <div className="flex items-start gap-3">
-            {/* Mail icon (monochrome) */}
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
-              className="shrink-0 fill-none stroke-black" strokeWidth="1.5">
-              <path d="M3 7.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z" />
-              <path d="m3 8 8.4 5.6c.37.25.83.25 1.2 0L21 8" />
-            </svg>
-            <div>
-              <h2 className="font-semibold text-black">General / Quotes</h2>
-              <p className="text-slate-700 mt-1">Project scope, pricing, and timelines.</p>
-              <a href="mailto:hello@llmvertex.com" className="mt-2 inline-block underline underline-offset-4">
-                info@llmvertex.com
-              </a>
+      <section className="border-y border-[#1a1a1a]">
+        <div className="mx-auto grid max-w-7xl gap-5 px-5 py-10 md:grid-cols-2 md:py-12">
+          {contactCards.map((card) => (
+            <div
+              key={card.title}
+              className="contact-card-surface rounded-[20px] border border-[#262626] p-6"
+            >
+              <h2 className="text-[24px] font-medium leading-tight text-white">{card.title}</h2>
+              <p className="mt-3 text-[15px] leading-[1.35] text-[#999999]">
+                {card.body}
+              </p>
+              {card.email && (
+                <a
+                  href={`mailto:${card.email}`}
+                  className="mt-5 inline-block text-[15px] font-medium text-[#0099ff] hover:underline"
+                >
+                  {card.email}
+                </a>
+              )}
             </div>
-          </div>
+          ))}
         </div>
+      </section>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
-          <div className="flex items-start gap-3">
-            {/* Handshake icon (monochrome) */}
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
-              className="shrink-0 fill-none stroke-black" strokeWidth="1.5">
-              <path d="M7.5 12 5 9.5A3 3 0 0 1 5 5h.5l6.5 5.5 3-2.5A3 3 0 0 1 19 8l.5.5M13 14l-1.5 1.5a2.5 2.5 0 0 1-3.5 0L6 14m11-2-2 2a2.5 2.5 0 0 1-3.5 0" />
-              <path d="M3 12v4a3 3 0 0 0 3 3h1m14-7v4a3 3 0 0 1-3 3h-2" />
-            </svg>
-            <div>
-              <h2 className="font-semibold text-black">Partnerships</h2>
-              <p className="text-slate-700 mt-1">Research, fine-tuning, and model collaborations.</p>
-              <a href="mailto:partners@llmvertex.com" className="mt-2 inline-block underline underline-offset-4">
-                partners@llmvertex.com
-              </a>
-            </div>
-          </div>
+      <section className="mx-auto max-w-7xl px-5 py-10 md:py-12">
+        <div className="flex flex-col gap-5 rounded-[20px] bg-[#141414] p-6 md:flex-row md:items-center md:justify-between md:p-8">
+          <p className="max-w-2xl text-[18px] leading-[1.35] text-[#999999]">
+            Prefer a quick form? Submit basic details and we'll follow up.
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdUC8kRwVb7UGUXs2GA_HSVQkjKuQXxuxN-TyG7mhysMpBVqg/viewform"
+            target="_blank"
+            rel="noreferrer"
+            className="w-fit rounded-full bg-white px-[15px] py-[10px] text-[14px] font-medium text-black transition hover:scale-[0.98]"
+          >
+            Contact Us
+          </a>
         </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
-          <div className="flex items-start gap-3">
-            {/* Briefcase icon (monochrome) */}
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
-              className="shrink-0 fill-none stroke-black" strokeWidth="1.5">
-              <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
-              <rect x="3" y="7" width="18" height="12" rx="2" />
-              <path d="M3 12h18" />
-            </svg>
-            <div>
-              <h2 className="font-semibold text-black">Careers</h2>
-              <p className="text-slate-700 mt-1">Training programs and career development opportunities.</p>
-              <a href="mailto:talent@llmvertex.com" className="mt-2 inline-block underline underline-offset-4">
-                talent@llmvertex.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
-          <div className="flex items-start gap-3">
-            {/* Pin icon (monochrome) */}
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
-              className="shrink-0 fill-none stroke-black" strokeWidth="1.5">
-              <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
-            <div>
-              <h2 className="font-semibold text-black">Locations</h2>
-              <p className="text-slate-700 mt-1">New Jersey, USA  </p>
-              <p className="text-slate-700">Mon–Fri, 9:00–18:00 (local)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA row */}
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <div className="text-slate-600">
-          Prefer a quick form? Submit basic details and we’ll follow up.
-        </div>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSdUC8kRwVb7UGUXs2GA_HSVQkjKuQXxuxN-TyG7mhysMpBVqg/viewform"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-xl bg-black text-white px-5 py-3 text-sm hover:opacity-90"
-        >
-          Contact Us
-          {/* Arrow (monochrome) */}
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" className="fill-none stroke-white" strokeWidth="1.8">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
