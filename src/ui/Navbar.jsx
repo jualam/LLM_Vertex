@@ -55,7 +55,7 @@ const NavItem = ({ to, children, onNavigate }) => {
         onClick={() => onNavigate?.()}
         target="_blank"
         rel="noreferrer"
-        className="px-3 py-2 rounded-lg text-sm font-medium transition hover:bg-slate-100 text-slate-700"
+        className="rounded-full px-3 py-2 text-sm font-medium text-[#d4d4d4] transition hover:bg-[#1c1c1c] hover:text-white"
       >
         {children}
       </a>
@@ -67,7 +67,7 @@ const NavItem = ({ to, children, onNavigate }) => {
       to={to}
       onClick={handleClick}
       className={({ isActive }) =>
-        `px-3 py-2 rounded-lg text-sm font-medium transition hover:bg-slate-100 ${isActive ? "bg-slate-100" : "text-slate-700"
+        `rounded-full px-3 py-2 text-sm font-medium transition hover:bg-[#1c1c1c] hover:text-white ${isActive ? "bg-white text-black" : "text-[#d4d4d4]"
         }`
       }
     >
@@ -81,18 +81,18 @@ const Navbar = () => {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-40 border-b border-[#1a1a1a] bg-[#090909]/85 text-white backdrop-blur supports-[backdrop-filter]:bg-[#090909]/75">
+      <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => {
           closeMenu();
           // force scroll to top when clicking logo on same page
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }}>
-          <div className="h-15 w-15 rounded-lg flex items-center justify-center overflow-hidden">
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white">
             <img src="logo/llm_logo1.png" alt="LLM Vertex Logo" className="h-full w-full object-contain" />
           </div>
 
-          <span className="font-bold tracking-tight">LLM Vertex</span>
+          <span className="font-medium tracking-[-.2px] text-white">LLM Vertex</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -116,7 +116,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setOpen((s) => !s)}
-          className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-300 hover:bg-slate-100"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#262626] bg-[#141414] text-white hover:bg-[#1c1c1c]"
           aria-label="Toggle menu"
         >
           <span className="i">≡</span>
@@ -124,7 +124,7 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white">
+        <div className="md:hidden border-t border-[#1a1a1a] bg-[#090909]">
           <div className="px-4 py-2 grid gap-1">
             <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
             <NavItem to="https://workforce.llmvertex.com/" onNavigate={closeMenu}>Work Force Development</NavItem>
