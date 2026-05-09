@@ -55,6 +55,9 @@ const Footer = () => {
               </a>
               .
             </p>
+            <p className="mt-4 text-[14px] leading-[1.4]">
+              Office: New Jersey, USA
+            </p>
           </div>
         </div>
       </div>
