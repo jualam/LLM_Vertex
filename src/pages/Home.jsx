@@ -255,7 +255,7 @@ export default function Home() {
       <section className="pb-24 pt-12">
         <SectionHeader
           eyebrow="What We Do"
-          title="Inclusive data services and workforce training."
+          title="Inclusive data services and workforce training"
           body="We combine practical AI services, learning systems, agentic solutions, and multilingual data work for organizations building responsibly."
           link={{ href: "/services", label: "See all services" }}
         />
@@ -282,7 +282,7 @@ export default function Home() {
         >
           <p className="text-[13px] font-medium uppercase text-[#999999]">Problem & Vision</p>
           <h2 className="mt-4 text-4xl font-medium leading-none text-white md:text-6xl">
-            AI should work across cultures.
+            AI should work across cultures
           </h2>
           <p className="mt-5 text-[15px] leading-[1.35] text-[#999999]">
             Many LLMs overlook underrepresented languages. We bridge this gap by creating culturally-aware
@@ -309,7 +309,7 @@ export default function Home() {
       <section className="pb-24 pt-12">
         <SectionHeader
           eyebrow="Solutions & Use Cases"
-          title="From data collection to fine-tuning and evaluation."
+          title="From data collection to fine-tuning and evaluation"
           body="Support for multilingual AI, safety work, RAG quality, moderation, education, research, public-sector programs, and mission-driven organizations."
         />
         <Motion.div
@@ -331,11 +331,11 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="mb-8"
+          className="mx-auto mb-8 max-w-5xl text-center"
         >
           <p className="text-[13px] font-medium uppercase text-[#999999]">How We Work</p>
           <h2 className="mt-3 text-4xl font-medium leading-none text-white md:text-6xl">
-            Simple, transparent collaboration.
+            Simple, transparent collaboration
           </h2>
         </Motion.div>
         <Motion.div
