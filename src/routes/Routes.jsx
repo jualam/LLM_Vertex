@@ -9,6 +9,7 @@ import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import Privacy_Policy from "../pages/Privacy_Policy";
 import Investor from "../pages/Investor";
+import LearningManagementSystem from "../pages/LearningManagementSystem";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/services", element: <Services /> },
+      { path: "/learning-management-system", element: <LearningManagementSystem /> },
       { path: "/careers", element: <WorkWithUs /> },
       { path: "/who-we-serve", element: <WhoWeServe /> },
       { path: "/contact", element: <Contact /> },

@@ -30,9 +30,10 @@ const Stat = ({ k, v }) => (
 );
 
 const Card = ({ title, body, href = "#", id, img = "/img/placeholder-1.jpg" }) => (
-  <div
+  <Link
+    to={href}
     id={id}
-    className="group rounded-2xl border border-slate-200 p-6 bg-white hover:shadow-xl transition reveal"
+    className="group block rounded-2xl border border-slate-200 p-6 bg-white hover:shadow-xl transition reveal"
   >
     <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
       <img
@@ -42,15 +43,15 @@ const Card = ({ title, body, href = "#", id, img = "/img/placeholder-1.jpg" }) =
         loading="lazy"
       />
     </div>
-    <h3 className="font-semibold text-lg mt-4">{title}</h3>
-    <p className="text-slate-600 mt-2">{body}</p>
+    <h3 className="font-semibold text-base mt-4">{title}</h3>
+    <p className="text-slate-600 text-sm mt-2 leading-relaxed">{body}</p>
     {/* <Link
       to={href}
       className="inline-flex items-center gap-2 text-sky-700 mt-4 hover:underline font-medium"
     >
       Learn more <span aria-hidden>→</span>
     </Link> */}
-  </div>
+  </Link>
 );
 
 const Pill = ({ children }) => (
@@ -288,11 +289,11 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           <Card
-            id="multilingual"
-            title="Multilingual Text Data Services"
-            body="Collection, annotation, and evaluation with strong coverage in low-resource languages and dialects."
-            href="/services#multilingual"
-            img="data.jpg"
+            id="edtech_ai"
+            title="AI-Powered Learning Management System"
+            body="A modern LMS with adaptive learning tools, academic analytics, course management, and smart support for teaching, administration, and student engagement."
+            href="/learning-management-system"
+            img="ed_tech.jpg"
           />
           <Card
             id="training"
@@ -302,6 +303,20 @@ export default function Home() {
             img="llm.jpg"
           />
           <Card
+            id="custom_agents"
+            title="Custom Agentic AI Solution"
+            body="End-to-end development of intelligent, goal-driven AI agents customized for small businesses and individuals from task automation to personalized workflow optimization and decision support."
+            href="/services#custom_agents"
+            img="ai_agent.jpg"
+          />
+          <Card
+            id="multilingual"
+            title="Multilingual Text Data Services"
+            body="Collection, annotation, and evaluation with strong coverage in low-resource languages and dialects."
+            href="/services#multilingual"
+            img="data.jpg"
+          />
+          <Card
             id="finetune"
             title="Fine-Tuning & AI Model Partnerships"
             body="Culturally-aware dataset prep and fine-tuning to align models with regional nuance."
@@ -309,27 +324,11 @@ export default function Home() {
             img="fine_tune.jpg"
           />
           <Card
-            id="custom_agents"
-            title="Custom Agentic AI Solutions"
-            body="End-to-end development of intelligent, goal-driven AI agents customized for small businesses and individuals from task automation to personalized workflow optimization and decision support."
-            href="/services#custom_agents"
-            img="ai_agent.jpg"
-          />
-
-          <Card
             id="ai_adoption"
             title="AI Adoption & Transformation Services"
-            body="End-to-end AI adoption and digital transformation services tailored to your organization covering AI readiness research, human-centered strategy design, risk and impact assessments, and seamless integration of AI into employee workflows for safe, scalable, and sustainable deployment."
+            body="AI readiness research, strategy design, risk assessment, and workflow integration to help organizations adopt AI safely and effectively."
             href="/services#ai_adoption"
             img="ai_adoption.jpg"
-          />
-
-          <Card
-            id="edtech_ai"
-            title="AI-Powered EdTech Solutions"
-            body="End-to-end AI-driven EdTech solutions designed for modern institutions featuring customized intelligent LMS platforms, bespoke AI tools for teaching and administration, adaptive learning systems, parent engagement technologies, performance-driven academic analytics, and seamless integration with your existing digital ecosystem."
-            href="/services#edtech_ai"
-            img="ed_tech.jpg"
           />
         </div>
       </section>

@@ -98,6 +98,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-1">
           <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
           <NavItem to="https://workforce.llmvertex.com/" onNavigate={closeMenu}>Work Force Development</NavItem>
+          <NavItem to="/learning-management-system" onNavigate={closeMenu}>LMS</NavItem>
           <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
           <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
           <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
@@ -127,6 +128,7 @@ const Navbar = () => {
           <div className="px-4 py-2 grid gap-1">
             <NavItem to="/" onNavigate={closeMenu}>Home</NavItem>
             <NavItem to="https://workforce.llmvertex.com/" onNavigate={closeMenu}>Work Force Development</NavItem>
+            <NavItem to="/learning-management-system" onNavigate={closeMenu}>LMS</NavItem>
             <NavItem to="/services" onNavigate={closeMenu}>Solutions</NavItem>
             <NavItem to="/about" onNavigate={closeMenu}>Company</NavItem>
             <NavItem to="/who-we-serve" onNavigate={closeMenu}>Who We Serve</NavItem>
