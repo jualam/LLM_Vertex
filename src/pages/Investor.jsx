@@ -99,18 +99,14 @@ export default function Investor() {
           viewport={{ once: true, amount: 0.2 }}
           className="mx-auto grid max-w-7xl gap-5 px-5 py-12 md:grid-cols-3 md:py-14"
         >
-          {summaryCards.map((card, index) => (
+          {summaryCards.map((card) => (
             <Motion.div
               key={card.title}
               variants={item}
-              className={`rounded-[20px] p-6 ${
-                index === 0
-                  ? "bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_52%,#ff7a3d_100%)]"
-                  : "bg-[#141414]"
-              }`}
+              className="rounded-[20px] bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_52%,#ff7a3d_100%)] p-6"
             >
               <h2 className="text-[24px] font-medium leading-tight text-white">{card.title}</h2>
-              <p className={`mt-4 text-[15px] leading-[1.35] ${index === 0 ? "text-white/85" : "text-[#999999]"}`}>
+              <p className="mt-4 text-[15px] leading-[1.35] text-white/85">
                 {card.body}
               </p>
             </Motion.div>
