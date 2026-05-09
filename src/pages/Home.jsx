@@ -1,504 +1,393 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
 
-/* ------------------------------
-   Small helpers (no extra deps)
---------------------------------*/
-const useReveal = () => {
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("show");
-            io.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.08 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const Stat = ({ k, v }) => (
-  <div className="rounded-2xl border border-slate-200 p-5 bg-white/70 backdrop-blur reveal">
-    <div className="text-2xl font-bold">{k}</div>
-    <div className="text-slate-600 text-sm">{v}</div>
-  </div>
-);
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
 
-const Card = ({ title, body, href = "#", id, img = "/img/placeholder-1.jpg" }) => (
-  <Link
-    to={href}
-    id={id}
-    className="group block rounded-2xl border border-slate-200 p-6 bg-white hover:shadow-xl transition reveal"
+const services = [
+  {
+    id: "edtech_ai",
+    title: "AI-Powered Learning Management System",
+    body: "A modern LMS with adaptive learning tools, academic analytics, course management, and smart support for teaching, administration, and student engagement.",
+    href: "/learning-management-system",
+    img: "/ed_tech.jpg",
+  },
+  {
+    id: "training",
+    title: "AI Training for Workforce Development",
+    body: "Practical AI training and career support for students and graduates from all disciplines.",
+    href: "/services#training",
+    img: "/llm.jpg",
+  },
+  {
+    id: "custom_agents",
+    title: "Custom Agentic AI Solution",
+    body: "End-to-end development of intelligent, goal-driven AI agents customized for small businesses and individuals.",
+    href: "/services#custom_agents",
+    img: "/ai_agent.jpg",
+  },
+  {
+    id: "multilingual",
+    title: "Multilingual Text Data Services",
+    body: "Collection, annotation, and evaluation with strong coverage in low-resource languages and dialects.",
+    href: "/services#multilingual",
+    img: "/data.jpg",
+  },
+  {
+    id: "finetune",
+    title: "Fine-Tuning & AI Model Partnerships",
+    body: "Culturally-aware dataset prep and fine-tuning to align models with regional nuance.",
+    href: "/services#finetune",
+    img: "/fine_tune.jpg",
+  },
+  {
+    id: "ai_adoption",
+    title: "AI Adoption & Transformation Services",
+    body: "AI readiness research, strategy design, risk assessment, and workflow integration to help organizations adopt AI safely and effectively.",
+    href: "/services#ai_adoption",
+    img: "/ai_adoption.jpg",
+  },
+];
+
+const useCases = [
+  ["Conversational AI & Support", "/data.jpg", "Multilingual intents, NER, and QA data for customer support and assistants."],
+  ["Safety & Alignment", "/llm.jpg", "Red-teaming prompts and culturally-aware safety evaluation sets."],
+  ["Search & RAG", "/ragai.jpg", "Domain corpora, chunking evaluation, and human-rated retrieval quality."],
+  ["Content Moderation", "/m.jpg", "Policy-aligned datasets for nuanced harassment and hate-speech detection."],
+  ["Education & Research", "/m1.jpg", "Academic partnerships for corpus building and benchmark creation."],
+  ["Public Sector & NGOs", "/m2.jpg", "Civic-tech language coverage for underserved communities."],
+];
+
+const process = [
+  ["Scope", "/scope.jpg", "Define languages, tasks, and policy constraints."],
+  ["Pilot", "/pilot.jpg", "Small sample to validate quality and cost."],
+  ["Scale", "/scale.jpg", "Expand with QA loops and analytics."],
+  ["Deliver", "/deliver.jpg", "Datasets, reports, and integration help."],
+];
+
+const languages = [
+  "Chinese",
+  "Spanish",
+  "English",
+  "Hindi",
+  "Arabic",
+  "Bangla",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "Punjabi",
+  "German",
+  "French",
+  "Urdu",
+  "Tamil",
+  "Turkish",
+];
+
+const SectionHeader = ({ eyebrow, title, body, link }) => (
+  <Motion.div
+    variants={fadeUp}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.3 }}
+    className="mx-auto max-w-7xl px-5"
   >
-    <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
-      <img
-        src={img}
-        alt=""
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      />
+    <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div className="max-w-3xl">
+        <p className="text-[13px] font-medium uppercase text-[#999999]">{eyebrow}</p>
+        <h2 className="mt-3 text-4xl font-medium leading-none text-white md:text-6xl">
+          {title}
+        </h2>
+        {body && <p className="mt-4 max-w-2xl text-[15px] leading-[1.35] text-[#999999]">{body}</p>}
+      </div>
+      {link && (
+        <Link to={link.href} className="text-[14px] font-medium text-[#0099ff] hover:underline">
+          {link.label}
+        </Link>
+      )}
     </div>
-    <h3 className="font-semibold text-base mt-4">{title}</h3>
-    <p className="text-slate-600 text-sm mt-2 leading-relaxed">{body}</p>
-    {/* <Link
-      to={href}
-      className="inline-flex items-center gap-2 text-sky-700 mt-4 hover:underline font-medium"
+  </Motion.div>
+);
+
+const ServiceCard = ({ service, featured }) => (
+  <Motion.div variants={fadeUp}>
+    <Link
+      to={service.href}
+      id={service.id}
+      className={`group block h-full overflow-hidden rounded-[20px] border border-[#262626] ${
+        featured ? "bg-[#1c1c1c]" : "bg-[#141414]"
+      } transition duration-300 hover:-translate-y-1 hover:border-white/25`}
     >
-      Learn more <span aria-hidden>→</span>
-    </Link> */}
-  </Link>
+      <div className="aspect-[16/10] overflow-hidden bg-[#1c1c1c]">
+        <img
+          src={service.img}
+          alt=""
+          className="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-95"
+          loading="lazy"
+        />
+      </div>
+      <div className="p-5">
+        <h3 className="text-[22px] font-medium leading-[1.1] text-white">{service.title}</h3>
+        <p className="mt-3 text-[15px] leading-[1.35] text-[#999999]">{service.body}</p>
+      </div>
+    </Link>
+  </Motion.div>
 );
 
-const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
-    {children}
-  </span>
+const MiniTile = ({ title, img, body }) => (
+  <Motion.div variants={fadeUp} className="overflow-hidden rounded-[15px] bg-[#141414] p-3">
+    <div className="aspect-[16/10] overflow-hidden rounded-[10px] bg-[#1c1c1c]">
+      <img src={img} alt="" className="h-full w-full object-cover opacity-75" loading="lazy" />
+    </div>
+    <h3 className="mt-4 text-[18px] font-medium leading-tight text-white">{title}</h3>
+    <p className="mt-2 text-[14px] leading-[1.35] text-[#999999]">{body}</p>
+  </Motion.div>
 );
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.06 }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
-  }
-};
-
-const sectionTitle = "text-3xl font-black tracking-tight text-slate-950 md:text-4xl";
 
 export default function Home() {
-  useReveal();
-
   return (
-    <div className="bg-white text-slate-900">
-      {/* Inline styles for tiny extras (no config changes needed) */}
+    <div className="bg-[#090909] text-white [font-feature-settings:'cv01','cv05','cv09','cv11','ss03','ss07']">
       <style>{`
-        .gradient-text{
-          background: linear-gradient(90deg,#0ea5e9 0%, #10b981 60%, #6366f1 100%);
-          -webkit-background-clip:text;background-clip:text;color:transparent;
+        @keyframes llmMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
-        .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease;}
-        .reveal.show{opacity:1;transform:none;}
-        .floaty{animation:floaty 6s ease-in-out infinite;}
-        @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-        .shine{position:relative;overflow:hidden}
-        .shine:after{content:"";position:absolute;inset:-100% auto -100% -100%;width:60%;transform:rotate(20deg);
-          background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);
-          animation:shine 2.5s linear infinite;}
-        @keyframes shine{to{left:160%}}
+        .llm-marquee {
+          animation: llmMarquee 36s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .llm-marquee { animation: none; }
+        }
       `}</style>
 
-      {/* HERO */}
-      <section className="relative">
-        {/* subtle shape */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(14,165,233,.08),transparent_60%),radial-gradient(ellipse_at_bottom,_rgba(16,185,129,.08),transparent_60%)]"
-        />
-        <div className="max-w-7xl mx-auto px-4 pt-16 pb-10 lg:pt-20 lg:pb-16">
-          <div className="grid lg:grid-cols-12 gap-10 items-stretch">
-            <div className="lg:col-span-6 reveal">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Pill>Inclusive AI</Pill>
-                <Pill>Low-resource Languages</Pill>
-              </div>
+      <section className="mx-auto max-w-7xl px-5 pb-20 pt-8 md:pb-28 md:pt-14">
+        <Motion.div variants={stagger} initial="hidden" animate="show">
+          <Motion.div variants={fadeUp} className="max-w-6xl">
+            <div className="mb-5 flex flex-wrap gap-2">
+              <span className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white">
+                Inclusive AI
+              </span>
+              <span className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white">
+                Low-resource Languages
+              </span>
+            </div>
+            <h1 className="text-5xl font-medium leading-[1] tracking-[-1.8px] text-white md:text-7xl md:tracking-[-3px] lg:text-[86px]">
+              Building Inclusive AI through Ethical Diverse Data & Workforce Innovation
+            </h1>
+          </Motion.div>
 
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                Building Inclusive AI through Ethical Diverse Data &amp; Workforce Innovation
-              </h1>
-              <p className="mt-4 text-slate-600 max-w-xl">
-                Underrepresented language datasets + AI workforce training to serve a diverse world.
+          <div className="mt-14 grid gap-8 lg:grid-cols-[.8fr_1fr] lg:items-start">
+            <Motion.div variants={fadeUp} className="pt-[36px] lg:pt-[58px]">
+              <div className="rounded-[20px] bg-[#141414] p-6">
+                <p className="max-w-2xl text-[22px] leading-[1.3] text-[#999999]">
+                  Underrepresented language datasets + AI workforce training to serve a diverse world
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="https://workforce.llmvertex.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full bg-white px-[15px] py-[10px] text-[14px] font-medium text-black transition hover:scale-[0.98]"
+                  >
+                    Work Force Development
+                  </a>
+                  <Link
+                    to="/services"
+                    className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white transition hover:bg-[#262626]"
+                  >
+                    Explore Our Solutions
+                  </Link>
+                </div>
+              </div>
+            </Motion.div>
+
+          <Motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_48%,#ff7a3d_100%)] p-6"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.35),transparent_34%),radial-gradient(circle_at_85%_80%,rgba(255,255,255,.2),transparent_30%)]" />
+            <div className="relative flex flex-col gap-14 md:gap-16">
+              <p className="max-w-md text-[22px] leading-[1.25] text-white md:text-[24px]">
+                Let's build AI systems that understand more people, more languages, and more contexts.
               </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  to="/work-force-development"
-                  className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800"
-                >
-                  Work Force Development
-                </Link>
-                <Link
-                  to="/services"
-                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100"
-                >
-                  Explore Our Solutions
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="relative h-full">
-                <div className="absolute inset-0 rounded-[28px] border border-slate-200 bg-white p-3 md:p-4 reveal shine">
-                  <div className="h-full">
-                    <div className="rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
-                      <img
-                        src="llm.jpg"
-                        alt="Dataset creation preview"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute -top-2 -left-6 hidden md:block">
-                  <div className="rounded-2xl bg-white/80 border border-slate-200 backdrop-blur p-4 shadow-sm">
-                    <div className="text-sm font-semibold">Let’s Build AI for Everyone</div>
-                    <div className="text-xs text-slate-600">Inclusive data • Diverse workforce</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* TRUST BAR (Marquee style) */}
-        <div className="mt-12 reveal">
-
-
-          {/* Inline keyframes for marquee */}
-          <style>{`
-            @keyframes marqueeRTL {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .marquee-track {
-              display: flex;
-              width: max-content;
-              animation: marqueeRTL 35s linear infinite;
-            }
-            .marquee-track > * {
-              flex-shrink: 0;
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .marquee-track { animation: none; }
-            }
-          `}</style>
-
-          {/* Constrain width to main page content */}
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-x uppercase tracking-wide text-slate-700 mb-3">
-              Our Diversity
-            </div>
-            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-              <div
-                className="marquee-track gap-8 py-6 will-change-transform text-sm md:text-base"
-                aria-label="Language diversity marquee"
-              >
+              <div className="grid gap-3 sm:grid-cols-3">
                 {[
-                  "中文 / 汉语",
-                  "Español",
-                  "English",
-                  "हिन्दी",
-                  "العربية",
-                  "বাংলা",
-                  "Português",
-                  "Русский",
-                  "日本語",
-                  "ਪੰਜਾਬੀ / پنجابی",
-                  "Deutsch",
-                  "Français",
-                  "اردو",
-                  "தமிழ்",
-                  "Türkçe",
-                ].map((lang, i) => (
-                  <span
-                    key={`row1-${i}`}
-                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold text-xl transition transform hover:scale-105 ${[
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                    ][i % 8]
-                      }`}
-                  >
-                    {lang}
-                  </span>
-                ))}
-
-                {/* duplicate row for seamless loop */}
-                {[
-                  "中文 / 汉语",
-                  "Español",
-                  "English",
-                  "हिन्दी",
-                  "العربية",
-                  "বাংলা",
-                  "Português",
-                  "Русский",
-                  "日本語",
-                  "ਪੰਜਾਬੀ / پنجابی",
-                  "Deutsch",
-                  "Français",
-                  "اردو",
-                  "தமிழ்",
-                  "Türkçe",
-                ].map((lang, i) => (
-                  <span
-                    key={`row2-${i}`}
-                    className={`whitespace-nowrap px-6 py-3 rounded-2xl shadow-lg text-white font-semibold transition transform hover:scale-105 ${[
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                      "bg-black",
-                    ][i % 8]
-                      }`}
-                  >
-                    {lang}
-                  </span>
+                  ["15+", "languages covered"],
+                  ["95%", "avg. QA acceptance"],
+                  ["2-6w", "dataset pilot delivery"],
+                ].map(([k, v]) => (
+                  <div key={k} className="rounded-[20px] bg-black/25 p-4 backdrop-blur">
+                    <div className="text-3xl font-medium">{k}</div>
+                    <div className="mt-1 text-[13px] leading-tight text-white/75">{v}</div>
+                  </div>
                 ))}
               </div>
             </div>
+          </Motion.div>
           </div>
-        </div>
-
+        </Motion.div>
       </section>
 
-
-      {/* WHAT WE DO */}
-      <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="flex items-end justify-between gap-6 reveal">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold">What We Do</h2>
-            <p className="text-slate-600 mt-2">Inclusive Data Services and Workforce Training.</p>
-          </div>
-          <Link to="/services" className="text-sky-700 text-sm hover:underline">
-            See all services →
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          <Card
-            id="edtech_ai"
-            title="AI-Powered Learning Management System"
-            body="A modern LMS with adaptive learning tools, academic analytics, course management, and smart support for teaching, administration, and student engagement."
-            href="/learning-management-system"
-            img="ed_tech.jpg"
-          />
-          <Card
-            id="training"
-            title="AI Training for Workforce Development"
-            body="Practical AI training and career support for students and graduates from all disciplines."
-            href="/services#training"
-            img="llm.jpg"
-          />
-          <Card
-            id="custom_agents"
-            title="Custom Agentic AI Solution"
-            body="End-to-end development of intelligent, goal-driven AI agents customized for small businesses and individuals from task automation to personalized workflow optimization and decision support."
-            href="/services#custom_agents"
-            img="ai_agent.jpg"
-          />
-          <Card
-            id="multilingual"
-            title="Multilingual Text Data Services"
-            body="Collection, annotation, and evaluation with strong coverage in low-resource languages and dialects."
-            href="/services#multilingual"
-            img="data.jpg"
-          />
-          <Card
-            id="finetune"
-            title="Fine-Tuning & AI Model Partnerships"
-            body="Culturally-aware dataset prep and fine-tuning to align models with regional nuance."
-            href="/services#finetune"
-            img="fine_tune.jpg"
-          />
-          <Card
-            id="ai_adoption"
-            title="AI Adoption & Transformation Services"
-            body="AI readiness research, strategy design, risk assessment, and workflow integration to help organizations adopt AI safely and effectively."
-            href="/services#ai_adoption"
-            img="ai_adoption.jpg"
-          />
-        </div>
-      </section>
-
-      {/* PROBLEM & VISION */}
-      <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="rounded-3xl border border-slate-200 p-8 md:p-10 bg-white reveal">
-            <h3 className="text-xl md:text-2xl font-bold">Problem &amp; Vision</h3>
-            <p className="text-slate-600 mt-3">
-              Many LLMs overlook underrepresented languages. We bridge this gap by creating culturally-aware datasets and empowering a diverse AI workforce.
-            </p>
-            <div className="mt-6 grid sm:grid-cols-3 gap-4">
-              <Stat k="15+" v="languages covered (and growing)" />
-              <Stat k="95%" v="avg. QA acceptance on pilot projects" />
-              <Stat k="2–6w" v="typical dataset pilot delivery" />
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-slate-200 p-8 md:p-10 bg-white reveal">
-            <h3 className="text-xl md:text-2xl font-bold">Why It Matters</h3>
-            <ul className="mt-3 space-y-3 text-slate-700">
-              <li>• Better access and fairness in AI products worldwide</li>
-              <li>• Improved safety through cultural context</li>
-              <li>• Higher model performance on real users’ languages</li>
-              <li>• Stronger global adoption for AI-first products</li>
-            </ul>
-            {/* <div className="mt-6">
-              <Link to="/impact" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
-                See our impact
-              </Link>
-            </div> */}
-          </div>
-        </div>
-      </section>
-
-
-      {/* PROGRAM FOR STUDENTS (OPT/CPT) */}
-      {/* <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
-        <div className="rounded-3xl border border-slate-200 p-8 md:p-12 bg-white reveal">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold">International Students: OPT/CPT Friendly</h3>
-              <p className="text-slate-600 mt-3">
-                We welcome F-1 students seeking OPT or CPT. Gain real-world experience while helping us make AI more inclusive.
-              </p>
-              <ul className="mt-4 space-y-2 text-slate-700">
-                <li>• Training in data quality, ethics, and tooling</li>
-                <li>• Work with multilingual datasets and evaluation</li>
-                <li>• Mentorship and career guidance</li>
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/work-with-us" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
-                  Apply
-                </Link>
-                <Link to="/programs" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
-                  Learn more
-                </Link>
-              </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
-              <img src="int_students.jpg" alt="Students collaborating" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-
-
-      {/* USE CASES / SOLUTIONS */}
-      <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="reveal">
-          <h3 className="text-xl md:text-2xl font-bold">Solutions & Use Cases</h3>
-          <p className="text-slate-600 mt-2">From data collection to fine-tuning and evaluation.</p>
-        </div>
-
-        <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            ["Conversational AI & Support", "data.jpg", "Multilingual intents, NER, and QA data for customer support and assistants."],
-            ["Safety & Alignment", "llm.jpg", "Red-teaming prompts and culturally-aware safety evaluation sets."],
-            ["Search & RAG", "ragai.jpg", "Domain corpora, chunking evaluation, and human-rated retrieval quality."],
-            ["Content Moderation", "m.jpg", "Policy-aligned datasets for nuanced harassment and hate-speech detection."],
-            ["Education & Research", "m1.jpg", "Academic partnerships for corpus building and benchmark creation."],
-            ["Public Sector & NGOs", "m2.jpg", "Civic-tech language coverage for underserved communities."]
-          ].map(([title, img, body], i) => (
-            <Card key={i} title={title} img={img} body={body} href="/use-cases" />
-          ))}
-        </div>
-      </section>
-
-
-
-      {/* PROCESS */}
-      <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="reveal">
-          <h3 className="text-xl md:text-2xl font-bold">How We Work</h3>
-          <p className="text-slate-600 mt-2">Simple, transparent collaboration.</p>
-        </div>
-        <div className="grid md:grid-cols-4 gap-6 mt-8">
-          {[
-            ["Scope", "scope.jpg", "Define languages, tasks, and policy constraints."],
-            ["Pilot", "pilot.jpg", "Small sample to validate quality and cost."],
-            ["Scale", "scale.jpg", "Expand with QA loops and analytics."],
-            ["Deliver", "deliver.jpg", "Datasets, reports, and integration help."]
-          ].map(([t, img, desc], i) => (
-            <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white reveal">
-              <div className="aspect-[16/9] rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
-                <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" />
-              </div>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-xs">
-                  {i + 1}
+      <section className="overflow-hidden border-y border-[#1a1a1a] py-8">
+        <div className="mx-auto max-w-7xl px-5">
+          <p className="mb-4 text-[13px] font-medium uppercase text-[#999999]">Our Diversity</p>
+          <div className="overflow-hidden">
+            <div className="llm-marquee flex w-max gap-3 will-change-transform">
+              {[...languages, ...languages].map((language, index) => (
+                <span
+                  key={`${language}-${index}`}
+                  className="rounded-full bg-[#141414] px-6 py-3 text-[15px] font-medium text-white"
+                >
+                  {language}
                 </span>
-                <h4 className="font-semibold">{t}</h4>
-              </div>
-              <p className="text-slate-600 mt-2">{desc}</p>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* METRICS / SOCIAL PROOF */}
-      {/* <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
-        <div className="rounded-3xl border border-slate-200 p-8 md:p-12 bg-white reveal">
-          <div className="grid md:grid-cols-4 gap-6">
-            <Stat k="150k+" v="human-labeled examples" />
-            <Stat k="12+" v="active model partnerships" />
-            <Stat k="85%" v="repeat customers & partners" />
-            <Stat k="A+" v="data ethics compliance record" />
-          </div>
-        </div>
-      </section> */}
-
-      {/* TESTIMONIALS */}
-      {/* <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16">
-        <div className="grid lg:grid-cols-3 gap-6">
-          {[
-            ["“Their multilingual QA sets lifted our assistant’s accuracy across new markets.”","goni.jpg","Head of ML, SaaS"],
-            ["“Strong ethics, strong delivery. The pilot was production-ready.”","Jisan.jpg","Founder, AI Startup"],
-            ["“As an F-1 student, I gained real experience—and contributed to my language community.”","faiyaz.jpg","Data Engineer (OPT)"]
-          ].map(([q,face,role],i)=>(
-            <figure key={i} className="rounded-2xl border border-slate-200 p-6 bg-white reveal">
-              <div className="flex items-center gap-3">
-                <img src={face} alt="" className="h-10 w-10 rounded-full object-cover" />
-                <figcaption className="text-sm text-slate-500">{role}</figcaption>
-              </div>
-              <blockquote className="mt-3 text-slate-800">{q}</blockquote>
-            </figure>
+      <section className="py-24">
+        <SectionHeader
+          eyebrow="What We Do"
+          title="Inclusive data services and workforce training."
+          body="We combine practical AI services, learning systems, agentic solutions, and multilingual data work for organizations building responsibly."
+          link={{ href: "/services", label: "See all services" }}
+        />
+        <Motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mx-auto mt-10 grid max-w-7xl gap-5 px-5 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {services.map((service, index) => (
+            <ServiceCard key={service.id} service={service} featured={index === 0 || index === 2} />
           ))}
-        </div>
-      </section> */}
+        </Motion.div>
+      </section>
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 pb-20">
-        <div className="rounded-3xl border border-slate-200 p-8 md:p-12 bg-gradient-to-br from-white to-slate-50 reveal">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 lg:grid-cols-2">
+        <Motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="rounded-[20px] bg-[#141414] p-8 md:p-10"
+        >
+          <p className="text-[13px] font-medium uppercase text-[#999999]">Problem & Vision</p>
+          <h2 className="mt-4 text-4xl font-medium leading-none text-white md:text-6xl">
+            AI should work across cultures.
+          </h2>
+          <p className="mt-5 text-[15px] leading-[1.35] text-[#999999]">
+            Many LLMs overlook underrepresented languages. We bridge this gap by creating culturally-aware
+            datasets and empowering a diverse AI workforce.
+          </p>
+        </Motion.div>
+        <Motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="rounded-[30px] bg-[linear-gradient(135deg,#ff5577_0%,#d44df0_52%,#6a4cf5_100%)] p-8 md:p-10"
+        >
+          <p className="text-[13px] font-medium uppercase text-white/70">Why It Matters</p>
+          <ul className="mt-6 space-y-4 text-[22px] leading-[1.2] text-white">
+            <li>Better access and fairness in AI products worldwide</li>
+            <li>Improved safety through cultural context</li>
+            <li>Higher model performance on real users' languages</li>
+            <li>Stronger global adoption for AI-first products</li>
+          </ul>
+        </Motion.div>
+      </section>
+
+      <section className="py-24">
+        <SectionHeader
+          eyebrow="Solutions & Use Cases"
+          title="From data collection to fine-tuning and evaluation."
+          body="Support for multilingual AI, safety work, RAG quality, moderation, education, research, public-sector programs, and mission-driven organizations."
+        />
+        <Motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mx-auto mt-10 grid max-w-7xl gap-5 px-5 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {useCases.map(([title, img, body]) => (
+            <MiniTile key={title} title={title} img={img} body={body} />
+          ))}
+        </Motion.div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-10">
+        <Motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="mb-8"
+        >
+          <p className="text-[13px] font-medium uppercase text-[#999999]">How We Work</p>
+          <h2 className="mt-3 text-4xl font-medium leading-none text-white md:text-6xl">
+            Simple, transparent collaboration.
+          </h2>
+        </Motion.div>
+        <Motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid gap-4 md:grid-cols-4"
+        >
+          {process.map(([title, img, body], index) => (
+            <Motion.div key={title} variants={fadeUp} className="rounded-[20px] bg-[#141414] p-4">
+              <div className="aspect-[16/10] overflow-hidden rounded-[15px] bg-[#1c1c1c]">
+                <img src={img} alt="" className="h-full w-full object-cover opacity-75" loading="lazy" />
+              </div>
+              <div className="mt-4 flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1c1c1c] text-[13px] text-white">
+                  {index + 1}
+                </span>
+                <h3 className="text-[18px] font-medium text-white">{title}</h3>
+              </div>
+              <p className="mt-3 text-[14px] leading-[1.35] text-[#999999]">{body}</p>
+            </Motion.div>
+          ))}
+        </Motion.div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-24">
+        <Motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.35 }}
+          className="rounded-[30px] bg-[#141414] p-8 md:p-12"
+        >
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">Let’s Build AI for Everyone</h3>
-              <p className="text-slate-600 mt-2">Get a fast quote or schedule a scoping call.</p>
+              <p className="text-[13px] font-medium uppercase text-[#999999]">Ready to scope it?</p>
+              <h2 className="mt-3 max-w-3xl text-4xl font-medium leading-none text-white md:text-6xl">
+                Let's Build AI for Everyone
+              </h2>
+              <p className="mt-5 text-[15px] leading-[1.35] text-[#999999]">
+                Get a fast quote or schedule a scoping call.
+              </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:bg-slate-800">
-                Request a Quote
-              </Link>
-              {/* <a href="#contact-form" className="rounded-xl border border-slate-300 px-5 py-3 text-sm hover:bg-slate-100">
-                Contact
-              </a> */}
-            </div>
+            <Link
+              to="/contact"
+              className="w-fit rounded-full bg-white px-[15px] py-[10px] text-[14px] font-medium text-black transition hover:scale-[0.98]"
+            >
+              Request a Quote
+            </Link>
           </div>
-        </div>
+        </Motion.div>
       </section>
     </div>
   );
