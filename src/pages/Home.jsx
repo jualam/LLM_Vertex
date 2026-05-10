@@ -169,21 +169,13 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 pb-10 pt-8 md:pb-14 md:pt-14">
         <Motion.div variants={stagger} initial="hidden" animate="show">
           <Motion.div variants={fadeUp} className="mx-auto max-w-6xl text-center">
-            <div className="mb-5 flex flex-wrap justify-center gap-2">
-              <span className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white">
-                Inclusive AI
-              </span>
-              <span className="rounded-full bg-[#1c1c1c] px-[15px] py-[10px] text-[14px] font-medium text-white">
-                Low-resource Languages
-              </span>
-            </div>
             <h1 className="text-5xl font-medium leading-[1] tracking-[-1.8px] text-white md:text-7xl md:tracking-[-3px] lg:text-[86px]">
               Building Inclusive AI through Ethical Diverse Data & Workforce Innovation
             </h1>
           </Motion.div>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-[.8fr_1fr] lg:items-start">
-            <Motion.div variants={fadeUp} className="pt-[36px] lg:pt-[58px]">
+          <div className="mt-8 grid gap-8 md:mt-14 lg:grid-cols-[.8fr_1fr] lg:items-start">
+            <Motion.div variants={fadeUp} className="lg:pt-[58px]">
               <div className="rounded-[20px] bg-[#141414] p-6">
                 <p className="max-w-2xl text-[22px] leading-[1.3] text-[#999999]">
                   Underrepresented language datasets + AI workforce training to serve a diverse world
@@ -252,7 +244,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-12">
+      <section className="pb-8 pt-12 md:pb-10">
         <SectionHeader
           eyebrow="What We Do"
           title="Inclusive data services and workforce training"
@@ -272,7 +264,7 @@ export default function Home() {
         </Motion.div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 lg:grid-cols-2">
+      <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-10 pt-4 md:pt-6 lg:grid-cols-2">
         <Motion.div
           variants={fadeUp}
           initial="hidden"
@@ -306,7 +298,7 @@ export default function Home() {
         </Motion.div>
       </section>
 
-      <section className="pb-24 pt-12">
+      <section className="pb-8 pt-12 md:pb-10">
         <SectionHeader
           eyebrow="Solutions & Use Cases"
           title="From data collection to fine-tuning and evaluation"
@@ -325,7 +317,7 @@ export default function Home() {
         </Motion.div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-10">
+      <section className="mx-auto max-w-7xl px-5 pb-10 pt-4 md:pt-6">
         <Motion.div
           variants={fadeUp}
           initial="hidden"
@@ -362,7 +354,7 @@ export default function Home() {
         </Motion.div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-24">
+      <section className="mx-auto max-w-7xl px-5 pb-14 pt-4 md:pb-16 md:pt-6">
         <Motion.div
           variants={fadeUp}
           initial="hidden"

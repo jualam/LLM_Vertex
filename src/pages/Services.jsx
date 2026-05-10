@@ -96,7 +96,7 @@ const faqs = [
 export default function Services() {
   return (
     <main className="bg-[#090909] text-white [font-feature-settings:'cv01','cv05','cv09','cv11','ss03','ss07']">
-      <section className="mx-auto max-w-7xl px-5 pb-10 pt-10 md:pb-14 md:pt-16">
+      <section className="mx-auto max-w-7xl px-5 pb-5 pt-10 md:pb-6 md:pt-16">
         <Motion.div variants={container} initial="hidden" animate="show" className="grid gap-8 lg:grid-cols-[1fr_.8fr] lg:items-start">
           <Motion.div variants={item} className="pt-6 pl-8 md:pl-14">
             <h1 className="max-w-5xl text-4xl font-medium leading-[1] tracking-[-1.2px] text-white md:text-5xl md:tracking-[-2px] lg:text-[56px]">
@@ -111,7 +111,7 @@ export default function Services() {
         </Motion.div>
       </section>
 
-      <section className="border-y border-[#1a1a1a] py-16">
+      <section className="border-y border-[#1a1a1a] pb-12 pt-8 md:pb-14 md:pt-10">
         <Motion.div
           variants={container}
           initial="hidden"
@@ -119,21 +119,17 @@ export default function Services() {
           viewport={{ once: true, amount: 0.15 }}
           className="mx-auto grid max-w-7xl gap-5 px-5 md:grid-cols-2 lg:grid-cols-3"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <Motion.section
               key={service.id}
               id={service.id}
               variants={item}
-              className={`rounded-[20px] p-6 ${
-                index === 0
-                  ? "bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_52%,#ff7a3d_100%)]"
-                  : "bg-[#141414]"
-              }`}
+              className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[#141414] p-6 shadow-[0_0_26px_rgba(0,153,255,0.18),0_0_58px_rgba(212,77,240,0.12)] transition duration-300 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_16%_0%,rgba(0,153,255,.32),transparent_36%),radial-gradient(circle_at_88%_8%,rgba(212,77,240,.26),transparent_34%),linear-gradient(135deg,rgba(255,255,255,.08),transparent_48%)] before:content-[''] after:pointer-events-none after:absolute after:-inset-px after:bg-[radial-gradient(circle_at_50%_-12%,rgba(255,255,255,.18),transparent_42%)] after:content-[''] hover:border-white/20 hover:shadow-[0_0_34px_rgba(0,153,255,0.24),0_0_74px_rgba(212,77,240,0.2)]"
             >
-              <h2 className="text-[24px] font-medium leading-[1.1] tracking-[-.4px] text-white">
+              <h2 className="relative z-10 text-[24px] font-medium leading-[1.1] tracking-[-.4px] text-white">
                 {service.title}
               </h2>
-              <ul className={`mt-5 space-y-3 text-[14px] leading-[1.35] ${index === 0 ? "text-white/85" : "text-[#999999]"}`}>
+              <ul className="relative z-10 mt-5 space-y-3 text-[14px] leading-[1.35] text-[#b8b8b8]">
                 {service.bullets.map((bullet) => (
                   <li key={bullet} className="border-t border-white/10 pt-3">
                     {bullet}
