@@ -59,8 +59,8 @@ export default function LearningManagementSystem() {
           animate="show"
           className="mt-10 grid gap-5 md:grid-cols-2"
         >
-          <div className="lms-charcoal-card lms-soft-bounce rounded-[24px] border border-[#262626] p-8 text-center transition-transform will-change-transform md:p-10">
-            <p className="text-[22px] leading-[1.3] text-[#999999]">
+          <div className="lms-soft-bounce rounded-[24px] bg-[linear-gradient(135deg,#6a4cf5_0%,#d44df0_52%,#ff7a3d_100%)] p-8 text-center transition-transform will-change-transform md:p-10">
+            <p className="text-[22px] leading-[1.3] text-white">
               LLM Vertex provides customized AI-powered Learning Management Systems for schools,
               training programs, and organizations that need a smarter way to manage learning.
             </p>
@@ -98,9 +98,9 @@ export default function LearningManagementSystem() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.25 }}
-                className="rounded-[20px] bg-[#141414] p-6 text-center text-[18px] leading-[1.3] text-white"
+                className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[#141414] p-6 text-center text-[18px] leading-[1.3] text-white shadow-[0_0_20px_rgba(0,153,255,0.1)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_18%_0%,rgba(0,153,255,.18),transparent_36%),linear-gradient(135deg,rgba(255,255,255,.05),transparent_48%)] before:content-['']"
               >
-                {feature}
+                <span className="relative z-10">{feature}</span>
               </Motion.div>
             ))}
           </div>
