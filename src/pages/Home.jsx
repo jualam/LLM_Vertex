@@ -120,9 +120,9 @@ const ServiceCard = ({ service, featured }) => (
     <Link
       to={service.href}
       id={service.id}
-      className={`group block h-full overflow-hidden rounded-[20px] border border-[#262626] ${
+      className={`group block h-full overflow-hidden rounded-[20px] border border-[#1c4355] shadow-[0_0_18px_rgba(0,153,255,0.22),0_0_42px_rgba(0,153,255,0.1),inset_0_1px_0_rgba(127,215,255,0.12)] ${
         featured ? "bg-[#1c1c1c]" : "bg-[#141414]"
-      } transition duration-300 hover:-translate-y-1 hover:border-white/25`}
+      } transition duration-300 hover:-translate-y-1 hover:border-[#4bbfff]/55 hover:shadow-[0_0_24px_rgba(0,153,255,0.28),0_0_58px_rgba(0,153,255,0.14),inset_0_1px_0_rgba(127,215,255,0.16)]`}
     >
       <div className="aspect-[16/10] overflow-hidden bg-[#1c1c1c]">
         <img
@@ -133,7 +133,7 @@ const ServiceCard = ({ service, featured }) => (
         />
       </div>
       <div className="p-5">
-        <h3 className="text-[22px] font-medium leading-[1.1] text-white">{service.title}</h3>
+        <h3 className="llm-service-title-glow text-[22px] font-medium leading-[1.1]">{service.title}</h3>
         <p className="mt-3 text-[15px] leading-[1.35] text-[#999999]">{service.body}</p>
       </div>
     </Link>
@@ -141,7 +141,10 @@ const ServiceCard = ({ service, featured }) => (
 );
 
 const MiniTile = ({ title, img, body }) => (
-  <Motion.div variants={fadeUp} className="overflow-hidden rounded-[15px] bg-[#141414] p-3">
+  <Motion.div
+    variants={fadeUp}
+    className="overflow-hidden rounded-[15px] border border-[#40521d] bg-[#141414] p-3 shadow-[0_0_18px_rgba(190,255,64,0.16),0_0_38px_rgba(123,255,88,0.08)] transition duration-300 hover:border-[#cfff57]/45 hover:shadow-[0_0_24px_rgba(190,255,64,0.22),0_0_50px_rgba(123,255,88,0.12)]"
+  >
     <div className="aspect-[16/10] overflow-hidden rounded-[10px] bg-[#1c1c1c]">
       <img src={img} alt="" className="h-full w-full object-cover opacity-75" loading="lazy" />
     </div>
@@ -158,18 +161,37 @@ export default function Home() {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
+        @keyframes llmTitleWave {
+          0%, 100% { background-position: 0% 50%; filter: drop-shadow(0 0 14px rgba(0,153,255,.14)); }
+          50% { background-position: 100% 50%; filter: drop-shadow(0 0 22px rgba(0,153,255,.22)); }
+        }
         .llm-marquee {
           animation: llmMarquee 36s linear infinite;
         }
+        .llm-title-glow {
+          background: linear-gradient(115deg, #ffffff 0%, #dff6ff 26%, #7fd7ff 46%, #ffffff 64%, #b5e9ff 100%);
+          background-size: 240% 240%;
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+          animation: llmTitleWave 8s ease-in-out infinite;
+        }
+        .llm-service-title-glow {
+          color: #f7fdff;
+          text-shadow:
+            0 0 10px rgba(0,153,255,.24),
+            0 0 22px rgba(127,215,255,.14);
+        }
         @media (prefers-reduced-motion: reduce) {
           .llm-marquee { animation: none; }
+          .llm-title-glow { animation: none; }
         }
       `}</style>
 
       <section className="mx-auto max-w-7xl px-5 pb-10 pt-8 md:pb-14 md:pt-14">
         <Motion.div variants={stagger} initial="hidden" animate="show">
           <Motion.div variants={fadeUp} className="mx-auto max-w-6xl text-center">
-            <h1 className="text-5xl font-medium leading-[1] tracking-[-1.8px] text-white md:text-7xl md:tracking-[-3px] lg:text-[86px]">
+            <h1 className="llm-title-glow text-5xl font-medium leading-[1] tracking-[-1.8px] md:text-7xl md:tracking-[-3px] lg:text-[86px]">
               Building Inclusive AI through Ethical Diverse Data & Workforce Innovation
             </h1>
           </Motion.div>
